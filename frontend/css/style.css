@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Login Page */
+.login-page {
+    height: 100vh;
+}
+
+/* Left Section */
+.login-page .announcements {
+    height: 100vh;              
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background: #08005E;
+    padding: 40px;
+    color: #fff;
+}
+
+.login-page .eclipse-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.8;
+}
+
+
+.login-page .logo {
+    width: 114px;
+}
+
+.login-page .announcement-box {
+    position: relative;
+    border-radius: 15px;
+    padding: 20px;
+    margin: auto 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    z-index: 10;
+}
+
+.login-page .announcement-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 15px;
+    padding: 1px;
+    background: radial-gradient(
+        circle at center,
+        rgba(255,255,255,0.61) 0%,
+        rgba(255,255,255,0.0) 39%,
+        rgba(255,255,255,0.07) 77%,
+        rgba(255,255,255,0.56) 100%
+    );
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+
+.login-page .announcement-box h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.login-page .announcement-box h4 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffc107;
+}
+
+.login-page .announcement-box .date {
+    font-size: 10px;
+    color: #bbb;
+}
+
+.login-page .announcement-box .desc{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.login-page .server-img {
+    width: 300px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Right Section */
+.login-page .login-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #fff;
+}
+
+.login-page .form-box {
+    background: #08005E;
+    border-radius: 21px;
+    padding: 40px;
+    width: 346px;
+    height: 462px;
+    color: #fff;
+}
+
+.login-page .form-box h3 {
+    color: #ffc107;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 10px;   
+}
+
+.login-page .form-box p {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.login-page .login-form .form-box form{
+    margin-bottom: 38px;
+}
+
+.login-page .form-box label {
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.login-page .form-box a {
+    color: #C0BFF6;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.login-page .clearfix a{
+    text-decoration: none;
+    color: #8E7DF8;
+}
+
+/* Input Email & Password */
+.login-page .form-box .form-control {
+    height: 40px;
+    background-color: #1D1484;
+    border: 1px solid #fff;
+    font-size: 12px;
+    color: #fff;
+    border-radius: 6px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+}
+
+.login-page .form-box .form-control::placeholder {
+    color: #8E7DF8;
+}
+
+.login-page .form-box .checkbox label {
+    color: #8E7DF8;
+    display:flex;
+    align-items:center;
+}
