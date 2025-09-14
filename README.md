@@ -1,4 +1,4 @@
-# cloudpedia-whmcs-themes
+# Portal CloudPedia WHMCS Themes
 
 The WHMCS system and order themes for client area of [Portal CloudPedia](https://portal.cloudpedia.id).
 
