@@ -35,6 +35,6 @@ This project uses [Vite](https://vitejs.dev/) for frontend development.
 
 ## Resources
 
-- **Sprint Planning**: Detailed breakdown of development tasks and timelines.
-- **Sprint Planning Tracker (Spreadsheet)**: Live tracking of sprint progress.
-- **Design Reference on Figma**: The official UI/UX design mockups.
+- [**Sprint Planning**](./docs/sprint-planning.md): Detailed breakdown of development tasks and timelines.
+- [**Sprint Planning Tracker (Spreadsheet)**](https://docs.google.com/spreadsheets/d/1KQGU2SLri7asNJztVFdsoZl3LoUJrIVs2Vnmi6nNVJ4/edit?usp=sharing): Live tracking of sprint progress.
+- [**Design Reference on Figma**](https://www.figma.com/design/8lduvCqAaFz8tEgRljOyPw/HALIM-IDNET-s-team-library?node-id=2688-12984&t=14xRYAv1ixBCqfx1-1): The official UI/UX design mockups.
