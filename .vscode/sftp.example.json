@@ -1,0 +1,21 @@
+{
+    "name": "myname",
+    "host": "myhost",
+    "protocol": "sftp",
+    "port": 22,
+    "username": "deploy",
+    "remotePath": "/go/to/my/path",
+    "privateKeyPath": "C:/Users/myuser/.ssh/id_rsa",
+    "context": "./whmcs/themes/cloudpedia",
+    "uploadOnSave": true,
+    "useTempFile": true,
+    "openSsh": true,
+    "exclude": [
+        ".vscode",
+        ".git",
+        ".DS_Store",
+        "node_modules",
+        "docs",
+        "frontend"
+    ]
+}
