@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Services</title>
+    <title>My Domains</title>
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
@@ -163,13 +163,13 @@
         <!-- Navigation Tabs -->
         <ul class="nav">
             <li>
-                <a href="#">Renew Service</a>
+                <a href="#">Renew Domains</a>
             </li>
             <li>
-                <a href="#">Place a New Order</a>
+                <a href="#">Register a New Domain</a>
             </li>
             <li>
-                <a href="#">View Available Addons</a>
+                <a href="#">Transfer in a Domain</a>
             </li>
         </ul>
 
@@ -220,7 +220,24 @@
                 <!-- Left Content -->
                 <div class="col-md-9">
                     <div class="card">
-                        <div class="table-container my-services">
+                        <div class="table-container my-domains">
+                            <div class="table-button input-group">
+                                <div class="btn btn-type-1">Manage Name Server</div>
+                                <div class="btn btn-type-1">Edit Contact Information</div>
+                                <div class="btn btn-type-1">Renew Domains</div>
+                                <div class="dropdown">
+                                    <div class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">More... <span class="caret"></span></div>
+                                    <!-- Menu Dropdown -->
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <li>
+                                            <a href="#">Auto Renewal Status</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Registrat Lock Status</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="status-filters">
                                 <button class="filter-btn" data-status="Active">Active</button>
                                 <button class="filter-btn" data-status="Pending">Pending</button>
@@ -231,9 +248,10 @@
                             <table id="table" class="row-border">
                                 <thead>
                                     <tr>
-                                        <th>Product</th>
-                                        <th>Pricing</th>
+                                        <th></th>
+                                        <th>Domains</th>
                                         <th>Next Due Date</th>
+                                        <th>Auto Renew</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
@@ -241,22 +259,27 @@
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
+                                            <div class="checkbox-wrap">
+                                                <input type="checkbox" class="checkbox">
                                             </div>
-                                            <div class="subtext">
+                                        </td>
+                                        <td>
+                                            <div class="text">
                                                 <img src="images/icon-globe.svg" alt="Icon Globe">
                                                 Cloudpedia.com
                                             </div>
                                         </td>
                                         <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Monthly
-                                            </span>
+                                            24/12/2025
                                         </td>
                                         <td>
-                                            24/12/2025
+                                            <label class="switch">
+                                                <input type="checkbox" class="toggle">
+                                                <span class="slider">
+                                                    <span class="on-text">ON</span>
+                                                    <span class="off-text">OFF</span>
+                                                </span>
+                                            </label>
                                         </td>
                                         <td>
                                             <span class="status suspended">
@@ -264,149 +287,50 @@
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
+                                            <div class="btn-group">
+                                                <button class="btn btn-type-1">
+                                                    Renew
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                        ...
+                                                    </button>
+                                                    <!-- Menu Dropdown -->
+                                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                        <li>
+                                                            <a href="#">View Detail</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Manage Domain</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
+                                            <div class="checkbox-wrap">
+                                                <input type="checkbox" class="checkbox">
                                             </div>
-                                            <div class="subtext">
+                                        </td>
+                                        <td>
+                                            <div class="text">
                                                 <img src="images/icon-globe.svg" alt="Icon Globe">
                                                 Cloudpedia.com
                                             </div>
                                         </td>
                                         <td>
-                                            1.000 IDR
-                                            <span class="small">
-                                                Monthly
-                                            </span>
-                                        </td>
-                                        <td>
                                             24/12/2025
                                         </td>
                                         <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
+                                            <label class="switch">
+                                                <input type="checkbox" class="toggle">
+                                                <span class="slider">
+                                                    <span class="on-text">ON</span>
+                                                    <span class="off-text">OFF</span>
+                                                </span>
+                                            </label>
                                         </td>
                                         <td>
                                             <span class="status active">
@@ -414,29 +338,50 @@
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
+                                            <div class="btn-group">
+                                                <button class="btn btn-type-1">
+                                                    Renew
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                        ...
+                                                    </button>
+                                                    <!-- Menu Dropdown -->
+                                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                        <li>
+                                                            <a href="#">View Detail</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Manage Domain</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
+                                            <div class="checkbox-wrap">
+                                                <input type="checkbox" class="checkbox">
                                             </div>
-                                            <div class="subtext">
+                                        </td>
+                                        <td>
+                                            <div class="text">
                                                 <img src="images/icon-globe.svg" alt="Icon Globe">
                                                 Cloudpedia.com
                                             </div>
                                         </td>
                                         <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
+                                            24/12/2025
                                         </td>
                                         <td>
-                                            24/12/2025
+                                            <label class="switch">
+                                                <input type="checkbox" class="toggle">
+                                                <span class="slider">
+                                                    <span class="on-text">ON</span>
+                                                    <span class="off-text">OFF</span>
+                                                </span>
+                                            </label>
                                         </td>
                                         <td>
                                             <span class="status pending">
@@ -444,159 +389,127 @@
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
+                                            <div class="btn-group">
+                                                <button class="btn btn-type-1">
+                                                    Renew
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                        ...
+                                                    </button>
+                                                    <!-- Menu Dropdown -->
+                                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                        <li>
+                                                            <a href="#">View Detail</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Manage Domain</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
+                                            <div class="checkbox-wrap">
+                                                <input type="checkbox" class="checkbox">
                                             </div>
-                                            <div class="subtext">
+                                        </td>
+                                        <td>
+                                            <div class="text">
                                                 <img src="images/icon-globe.svg" alt="Icon Globe">
                                                 Cloudpedia.com
                                             </div>
                                         </td>
                                         <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
                                             24/12/2025
                                         </td>
                                         <td>
-                                            <span class="status active">
-                                                Active
+                                            <label class="switch">
+                                                <input type="checkbox" class="toggle">
+                                                <span class="slider">
+                                                    <span class="on-text">ON</span>
+                                                    <span class="off-text">OFF</span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <span class="status suspended">
+                                                Suspended
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
+                                            <div class="btn-group">
+                                                <button class="btn btn-type-1">
+                                                    Renew
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                        ...
+                                                    </button>
+                                                    <!-- Menu Dropdown -->
+                                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                        <li>
+                                                            <a href="#">View Detail</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Manage Domain</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
+                                            <div class="checkbox-wrap">
+                                                <input type="checkbox" class="checkbox">
                                             </div>
-                                            <div class="subtext">
+                                        </td>
+                                        <td>
+                                            <div class="text">
                                                 <img src="images/icon-globe.svg" alt="Icon Globe">
                                                 Cloudpedia.com
                                             </div>
                                         </td>
                                         <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
                                             24/12/2025
                                         </td>
                                         <td>
-                                            <span class="status pending">
-                                                Pending
+                                            <label class="switch">
+                                                <input type="checkbox" class="toggle">
+                                                <span class="slider">
+                                                    <span class="on-text">ON</span>
+                                                    <span class="off-text">OFF</span>
+                                                </span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <span class="status suspended">
+                                                Suspended
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
+                                            <div class="btn-group">
+                                                <button class="btn btn-type-1">
+                                                    Renew
+                                                </button>
+                                                <div class="dropdown">
+                                                    <button class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                                        ...
+                                                    </button>
+                                                    <!-- Menu Dropdown -->
+                                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                                        <li>
+                                                            <a href="#">View Detail</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#">Manage Domain</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status terminated">
-                                                Terminated
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status cancelled">
-                                                Cancelled
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status pending">
-                                                Pending
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>

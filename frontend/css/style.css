@@ -168,8 +168,9 @@ body {
 
 .login-page .form-box .checkbox label {
     color: #8E7DF8;
-    display:flex;
-    align-items:center;
+    display: flex;
+    align-items: center;
+    margin: 0;
 }
 
 .login-page .form-box .policy{
@@ -340,6 +341,7 @@ body {
     background: #e0dedc;
 }
 
+/* COMPONENTS */
 /* Card */
 .card{
     background: #fff;
@@ -374,6 +376,7 @@ body {
     display: flex;
     gap: 10px;
 }
+/* End Card */
 
 /* Button */
 .btn{
@@ -419,6 +422,7 @@ body {
 .btn-type-3:hover{
     background: linear-gradient(90deg, #F3A4FF 0%, #CCC3FF 100%);
 }
+/* END COMPONENTS */
 
 /* Content */
 .dashboard-page .container-fluid{
@@ -833,13 +837,13 @@ body {
     width: 100%;
     height: 100%;
 }
-/* End Search */
 
-.btn.search-button{
+.search-box .btn.search-button{
     border-radius: 0 3px 3px 0;
 }
+/* End Search */
 
-/* RIGHT SIDEBAR */
+/* RIGHT SECTION */
 .card.blue-color{
     background: #304166;
 }
@@ -910,7 +914,6 @@ body {
     background: #e0dedc;
 }
 
-
 .monitor-row{
     display: flex;
     justify-content: center;
@@ -940,6 +943,7 @@ body {
     font-weight: 400;
     padding-bottom: 10px;
 }
+/* END RIGHT SECTION */
 
 /* FOOTER */
 .footer{
@@ -964,6 +968,7 @@ body {
     gap: 70px;
 }
 
+/* Footer Left */
 .footer .footer-top .footer-content .footer-left{
     width: 30%;
 }
@@ -999,7 +1004,7 @@ body {
     font-weight: 500;
 }
 
-
+/* Footer Right */
 .footer .footer-top .footer-content .footer-right{
     display: flex;
     gap: 40px;
@@ -1104,8 +1109,9 @@ body {
 }
 
 .sidebar .menu li:hover{
-    background: rgba(162, 166, 245, 0.4);
-    border-radius: 7px;
+    /* background: rgba(36, 34, 32, 0.04); */
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.3) 0%, rgba(147, 51, 234, 0.3) 100%), rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
 }
 
 .sidebar .menu li .menu-item{
@@ -1259,31 +1265,6 @@ table.dataTable tbody td{
     border-radius: 5px;
 }
 
-table.dataTable tbody td .small {
-    font-size: 7px;
-    font-weight: 400;
-}
-
-table.dataTable tbody td .text{
-    color: #000;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-table.dataTable tbody td .text span{
-    color: #6C757D;
-    font-weight: 400;
-}
-
-table.dataTable tbody td .subtext {
-    color: #2759CD;
-    font-size: 9px;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
 table.dataTable tbody tr:hover {
     background: #EFF5FC;
 }
@@ -1304,12 +1285,18 @@ table.dataTable tbody td .status.pending   { background: rgba(17, 107, 241, 0.20
 table.dataTable tbody td .status.suspended { background: rgba(241, 77, 17, 0.20); color: #F14D11; }
 table.dataTable tbody td .status.terminated{ background: rgba(126, 17, 199, 0.20); color: #B828BA; }
 table.dataTable tbody td .status.cancelled { background: rgba(199, 17, 17, 0.20); color: #4D0101; }
+/* END DATATABLES */
 
+/* TABLE CONTENT */
 .status-filters {
     margin-bottom: 15px;
 }
 
-.filter-btn {
+.table-button{
+    margin-bottom: 10px;
+}
+
+.status-filters .filter-btn {
     color: #6C757D;
     border: 1px solid #6C757D;
     background: #fff;
@@ -1322,10 +1309,174 @@ table.dataTable tbody td .status.cancelled { background: rgba(199, 17, 17, 0.20)
     transition: all 0.2s;
 }
 
-.filter-btn.active,
-.filter-btn:hover {
+.status-filters .filter-btn.active,
+.status-filters .filter-btn:hover {
     background: linear-gradient(90deg, #F3A4FF 0%, #CCC3FF 100%);
     color: #fff;
 }
 
-/* END DATATABLES */
+.my-services tbody td .small {
+    font-size: 7px;
+    font-weight: 400;
+}
+
+.my-services tbody td .text{
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.my-services tbody td .text span{
+    color: #6C757D;
+    font-weight: 400;
+}
+
+.my-services tbody td .subtext {
+    color: #2759CD;
+    font-size: 9px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.my-domains tbody td .text{
+    color: #2759cd;
+    font-size: 13px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Checkbox Custom */
+.my-domains tbody td .checkbox{
+    appearance: none; /* Hilangkan default browser */
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    border: none !important;
+    outline: none !important;
+    background: #d9d9d9;
+    cursor: pointer;
+    position: relative;
+    margin: 0;
+}
+
+.my-domains tbody td .checkbox:checked {
+    background: linear-gradient(90deg, #F3A4FF 0%, #CCC3FF 100%);
+    border-radius: 5px;
+}
+
+.my-domains tbody td .checkbox:checked::after {
+    content: "\2714"; /* Lambang centang */
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    left: 4px;
+}
+
+/* Switch Custom */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 49px;
+    height: 22px;
+}
+
+.switch .toggle {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ADC4F8;
+    transition: 0.4s;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.switch .slider::before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    background-color: #fff;
+    transition: 0.4s;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.switch .slider .off-text,
+.switch .slider .on-text {
+    color: #fff;
+    transition: opacity 0.2s;
+}
+
+.switch .slider .on-text {
+    opacity: 0;
+}
+
+.switch input:checked + .slider {
+    background-color: #304166;
+}
+
+.switch input:checked + .slider::before {
+    transform: translateX(27px);
+}
+
+.switch input:checked + .slider .off-text {
+    opacity: 0;
+}
+.switch input:checked + .slider .on-text {
+    opacity: 1;
+}
+/* END TABLE CONTENT */
+
+/* DROPDOWN */
+.dropdown-menu {
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.10);
+    padding: 5px 10px;
+    width: 125px;
+}
+
+.dropdown-menu > li > a {
+    padding: 8px;
+    margin: 2px 0;
+    color: #495057;
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 6px;
+}
+
+.dropdown-menu > li > a:hover {
+    background: linear-gradient(90deg, #F3A4FF 0%, #CCC3FF 100%);
+}
+
+.btn-group{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.input-group{
+    display: flex;
+    align-items: center;
+}
