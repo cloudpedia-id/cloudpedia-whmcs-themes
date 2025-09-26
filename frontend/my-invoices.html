@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Invoices</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+
+    <!-- Datatables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar collapsed" id="sidebar">
+        <!-- Tombol toggle -->
+        <button class="toggle-btn img-circle" onclick="toggleSidebar()">
+            <img src="images/sidebar-arrow-toggle.svg" alt="Sidebar Toggle">
+        </button>
+
+        <!-- Logo -->
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <img src="images/sidebar-logo.svg" alt="Sidebar Logo">
+            </div>
+            <div class="sidebar-avatar">
+                <img src="images/avatar.jpg" class="img-circle" width="48" height="48">
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <ul class="menu list-unstyled">
+            <li>
+                <div class="menu-item">
+                    <img src="images/sidebar-icon-home.svg" class="icon-menu" alt="Home">
+                    <span class="text">Home</span>
+                </div>
+            </li>
+            <li>
+                <div class="menu-item">
+                    <img src="images/sidebar-icon-service.svg" class="icon-menu" alt="Service">
+                    <span class="text">Service</span>
+                </div>
+                <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+            </li>
+            <li>
+                <div class="menu-item">
+                    <img src="images/sidebar-icon-domain.svg" class="icon-menu" alt="Domain">
+                    <span class="text">Domain</span>
+                </div>
+                <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+            </li>
+            <li>
+                <div class="menu-item">
+                    <img src="images/sidebar-icon-security.svg" class="icon-menu" alt="Security">
+                    <span class="text">Website & Security</span>
+                </div>
+                <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+            </li>
+            <li>
+                <div class="menu-item">
+                    <img src="images/sidebar-icon-billing.svg" class="icon-menu" alt="Billing">
+                    <span class="text">Billing</span>
+                </div>
+                <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+            </li>
+            <li>
+                <div class="menu-item">
+                    <img src="images/sidebar-icon-support.svg" class="icon-menu" alt="Support">
+                    <span class="text">Support</span>
+                </div>
+                <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+            </li>
+        </ul>
+
+        <!-- Messages -->
+        <div class="messages">
+            <p class="title">
+                MESSAGES
+                <button class="btn">
+                    +
+                </button>
+            </p>
+            <ul class="list-unstyled">
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-1.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Erik Gunsel</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-2.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status offline"></div>
+                    </div>
+                    <span class="text">Emily Smith</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Arthur Adelk</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Arthur Adelk</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Arthur Adelk</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Arthur Adelk</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Arthur Adelk</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Bottom -->
+        <ul class="menu list-unstyled">
+            <li>
+                <div class="menu-item">
+                    <img src="images/sidebar-icon-profile.svg" class="icon-menu" alt="Home">
+                    <span class="text">Profile</span>
+                </div>
+            </li>
+            <li>
+                <div class="menu-item">
+                    <img src="images/sidebar-icon-logout.svg" class="icon-menu" alt="Home">
+                    <span class="text">Logout</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <section class="dashboard-page">
+        <!-- Top Bar News -->
+        <div class="news-alert">
+            <div class="news">News:</div> Limited-Time Offer: 50% Off Hosting!
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="custom-navbar">
+            <ul class="navs main-nav list-unstyled">
+                <li>
+                    <a href="#">My Invoices</a>
+                </li>
+                <li>
+                    <a href="#">My Quotes</a>
+                </li>
+                <li>
+                    <a href="#">Mass Payment</a>
+                </li>
+                <li>
+                    <a href="#">Add Funds</a>
+                </li>
+            </ul>
+            <ul class="navs nav-extra list-unstyled">
+                <li>
+                    <span class="status-nav">Paid <span class="badge">100</span></span>
+                </li>
+                <li>
+                    <span class="status-nav">Unpaid <span class="badge">3</span></span>
+                </li>
+                <li>
+                    <span class="status-nav">Cancelled <span class="badge">1</span></span>
+                </li>
+                <li>
+                    <span class="status-nav">Refund <span class="badge">0</span></span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Alerts -->
+        <div class="alerts">
+            <!-- Alert 1 -->
+            <div class="custom-alert yellow-warning">
+                <div class="alert-content">
+                    <img src="images/yellow-warning.svg" alt="Warning Icon" class="icon-alert">
+                    <div class="text-wrapper">
+                        <h3>Scheduled Network Status</h3>
+                        <div class="alert-text">
+                            There are upcoming maintenance events which may impact our services.
+                        </div>
+                    </div>
+                </div>
+                <div class="alert-actions">
+                    <button class="btn">Learn more</button>
+                    <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true"><img src="images/close.svg" alt="close" class="close-button"></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Alert 2 -->
+            <div class="custom-alert yellow-warning">
+                <div class="alert-content">
+                    <img src="images/yellow-warning.svg" alt="Warning Icon" class="icon-alert">
+                    <div class="text-wrapper">
+                        <h3>Verify Registration</h3>
+                        <div class="alert-text">
+                            Please check your email and follow the link to verify your email address.
+                        </div>
+                    </div>
+                </div>
+                <div class="alert-actions">
+                    <button class="btn">Resend Verification Email</button>
+                    <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true"><img src="images/close.svg" alt="close" class="close-button"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="table-container">
+                            <table id="table" class="row-border">
+                                <thead>
+                                    <tr>
+                                        <th>Invoice</th>
+                                        <th>Invoice Date</th>
+                                        <th>Due Date</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status paid">
+                                                PAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status paid">
+                                                PAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status refund">
+                                                REFUND
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status cancel">
+                                                CANCEL
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            #445
+                                        </td>
+                                        <td>
+                                            <span class="text-green">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="text-red">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            140.000 IDR
+                                        </td>
+                                        <td>
+                                            <span class="status unpaid">
+                                                UNPAID
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="my-invoices-detail" class="btn btn-type-1">
+                                                    View Invoice
+                                                </a>
+                                                <a href="#" class="action-icon">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="images/server.png" class="server-content-img" alt="Server Illustration" />
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="images/logo.svg" alt="Cloudpedia Logo" class="logo">
+            </div>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p class="desc">
+                        Access the full potential of WHMCS with Shufy themes, featuring a new user-friendly client area, simplified ordering process, and much more!
+                    </p>
+
+                    <!-- Email -->
+                    <a href="mailto:noreply@Cloudpedia.id" class="contact-list">
+                        <img src="images/icon-mail.svg" alt="Icon Mail">
+                        <span>noreply@Cloudpedia.id</span>
+                    </a>
+
+                    <!-- Phone -->
+                    <a href="#" class="contact-list">
+                        <img src="images/icon-phone.svg" alt="Icon Phone">
+                        <span>+62 853-3656-9836</span>
+                    </a>
+
+                    <!-- Alamat Pusat -->
+                    <span class="contact-title">Alamat Pusat</span>
+                    <p class="contact-list">
+                        <img src="images/icon-address-white.svg" alt="Icon Address">
+                        <span class="address">
+                            Soho Vittorio Citraland, Unit 708 Lt.7 Jl. Raya Menganti Karangan No. 32, RT.000 RW.000, Babatan, Wiyung, Kota Surabaya, Jawa Timur
+                        </span>
+                    </p>
+
+                    <!-- Alamat Cabang -->
+                    <span class="contact-title">Alamat Cabang</span>
+                    <p class="contact-list">
+                        <img src="images/icon-address-black.svg" alt="Icon Address">
+                        <span class="address">
+                            Ruko Este Square, Blok A12 No.56-58 Jl. Dr. Ir. H. Soekarno, Mulyorejo, Kec. Mulyorejo, Surabaya, Jawa Timur 60115
+                        </span>
+                    </p>
+                </div>
+    
+                <div class="footer-right">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Web Hosting</a></li>
+                            <li><a href="#">Reseller Hosting</a></li>
+                            <li><a href="#">VPS Hosting</a></li>
+                            <li><a href="#">Dedicated Servers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Minecraft Hosting</a></li>
+                            <li><a href="#">Website Builder</a></li>
+                            <li><a href="#">cPanel Reseller</a></li>
+                            <li><a href="#">Wordpress Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Domains</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Domain Checker</a></li>
+                            <li><a href="#">Free Domain</a></li>
+                            <li><a href="#">WHOIS Checker</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">SSL Certificates</a></li>
+                            <li><a href="#">E-Mail Services</a></li>
+                            <li><a href="#">Site Builder</a></li>
+                            <li><a href="#">Website Builder</a></li>
+                            <li><a href="#">Professional Email</a></li>
+                            <li><a href="#">Website Security</a></li>
+                            <li><a href="#">Website Backup</a></li>
+                            <li><a href="#">Seo Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Browser Cookies</a></li>
+                            <li><a href="#">Licesses</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2025 Cloudpedia. All Rights Reserved. Powered by TAN</p>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/2.3.4/js/dataTables.js"></script>
+
+    <!-- My JSs -->
+    <script src="js/script.js"></script>
+</body>
+</html>
