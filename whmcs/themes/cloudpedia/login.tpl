@@ -9,7 +9,7 @@
             </div>
             {include file="$template/includes/flashmessage.tpl"}
             <div class="form-group">
-                <label for="inputEmail" class="form-control-label">{lang key='clientareaemail'}</label>
+                <label for="inputEmail" class="form-control-label">{lang key='clientareaemail'} Yuhuuu</label>
                 <div class="input-group input-group-merge">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
