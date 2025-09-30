@@ -6,7 +6,7 @@
         <div class="row">
             <!-- Left Section -->
             <div class="col-md-5 announcements">
-                <img src="{$template}/assets/images/eclipse.png" alt="eclipse" class="eclipse-img">
+                <img src="/templates/{$template}/images/eclipse.png" alt="eclipse" class="eclipse-img">
                 <img src="images/logo.svg" class="logo" alt="logo" />
                 <div class="announcement-box">
                     <h3>Latest Announcements</h3>
