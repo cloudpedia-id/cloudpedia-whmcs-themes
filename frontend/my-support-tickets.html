@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Services</title>
+    <title>My Support Tickets</title>
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+    <!-- Sidebar -->
     <div class="sidebar collapsed" id="sidebar">
         <!-- Tombol toggle -->
         <button class="toggle-btn img-circle" onclick="toggleSidebar()">
@@ -164,13 +165,22 @@
         <div class="custom-navbar">
             <ul class="navs main-nav list-unstyled">
                 <li>
-                    <a href="#">Renew Service</a>
+                    <a href="#">My Support Tickets</a>
                 </li>
                 <li>
-                    <a href="#">Place a New Order</a>
+                    <a href="#">Announcement</a>
                 </li>
                 <li>
-                    <a href="#">View Available Addons</a>
+                    <a href="#">Knowledgebase</a>
+                </li>
+                <li>
+                    <a href="#">Downloads</a>
+                </li>
+                <li>
+                    <a href="#">Network Status</a>
+                </li>
+                <li>
+                    <a href="#">Open Ticket</a>
                 </li>
             </ul>
         </div>
@@ -219,398 +229,413 @@
         <!-- Content -->
         <div class="container-fluid">
             <div class="row ">
-                <!-- Left Content -->
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <div class="card">
-                        <div class="table-container my-services">
+                        <div class="table-container">
                             <div class="status-filters">
-                                <button class="filter-btn" data-status="Active">Active <span class="number">0</span></button>
-                                <button class="filter-btn" data-status="Pending">Pending <span class="number">119</span></button>
-                                <button class="filter-btn" data-status="Suspended">Suspended <span class="number">1</span></button>
-                                <button class="filter-btn" data-status="Terminated">Terminated <span class="number">0</span></button>
-                                <button class="filter-btn" data-status="Cancelled">Cancelled <span class="number">0</span></button>
+                                <button class="filter-btn" data-status="Active">Open <span class="number">1</span></button>
+                                <button class="filter-btn" data-status="Pending">Unswered <span class="number">1</span></button>
+                                <button class="filter-btn" data-status="Suspended">Customer-Replay <span class="number">1</span></button>
+                                <button class="filter-btn" data-status="Terminated">Closed <span class="number">1</span></button>
                             </div>
                             <table id="table" class="row-border">
                                 <thead>
                                     <tr>
-                                        <th>Product</th>
-                                        <th>Pricing</th>
-                                        <th>Next Due Date</th>
+                                        <th>Ticket ID</th>
+                                        <th>Subject</th>
                                         <th>Status</th>
-                                        <th>Actions</th>
+                                        <th>Department</th>
+                                        <th>Last Updated</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
+                                            DXF-7770151
                                         </td>
                                         <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Monthly
+                                            <span class="text-blue">
+                                                24/12/2025
                                             </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            1.000 IDR
-                                            <span class="small">
-                                                Monthly
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
                                         </td>
                                         <td>
                                             <span class="status active">
-                                                Active
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
+                                            DXF-7770150
                                         </td>
                                         <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
+                                            <span class="text-blue">
+                                                24/12/2025
                                             </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status pending">
-                                                Pending
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
-                                            </span>
-                                        </td>
-                                        <td>
-                                            24/12/2025
                                         </td>
                                         <td>
                                             <span class="status active">
-                                                Active
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
+                                            DXF-7770150
                                         </td>
                                         <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
+                                            <span class="text-blue">
+                                                24/12/2025
                                             </span>
                                         </td>
                                         <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status pending">
-                                                Pending
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
+                                            DXF-7770150
                                         </td>
                                         <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
+                                            <span class="text-blue">
+                                                24/12/2025
                                             </span>
                                         </td>
                                         <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status terminated">
-                                                Terminated
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
+                                            DXF-7770150
                                         </td>
                                         <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
+                                            <span class="text-blue">
+                                                24/12/2025
                                             </span>
                                         </td>
                                         <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status cancelled">
-                                                Cancelled
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="text">
-                                                SiteLock <span>- Ultimate Plan</span>
-                                            </div>
-                                            <div class="subtext">
-                                                <img src="images/icon-globe.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
+                                            DXF-7770150
                                         </td>
                                         <td>
-                                            14.000 IDR
-                                            <span class="small">
-                                                Annually
+                                            <span class="text-blue">
+                                                24/12/2025
                                             </span>
                                         </td>
                                         <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <span class="status pending">
-                                                Pending
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
                                             </span>
                                         </td>
                                         <td>
-                                            <button class="btn btn-type-2">
-                                                Manage
-                                            </button>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            DXF-7770150
+                                        </td>
+                                        <td>
+                                            <span class="text-blue">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
+                                            </span>
+                                        </td>
+                                        <td>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            DXF-7770150
+                                        </td>
+                                        <td>
+                                            <span class="text-blue">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
+                                            </span>
+                                        </td>
+                                        <td>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            DXF-7770150
+                                        </td>
+                                        <td>
+                                            <span class="text-blue">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
+                                            </span>
+                                        </td>
+                                        <td>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            DXF-7770150
+                                        </td>
+                                        <td>
+                                            <span class="text-blue">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
+                                            </span>
+                                        </td>
+                                        <td>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            DXF-7770150
+                                        </td>
+                                        <td>
+                                            <span class="text-blue">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
+                                            </span>
+                                        </td>
+                                        <td>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            DXF-7770150
+                                        </td>
+                                        <td>
+                                            <span class="text-blue">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
+                                            </span>
+                                        </td>
+                                        <td>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            DXF-7770150
+                                        </td>
+                                        <td>
+                                            <span class="text-blue">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
+                                            </span>
+                                        </td>
+                                        <td>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            DXF-7770150
+                                        </td>
+                                        <td>
+                                            <span class="text-blue">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
+                                            </span>
+                                        </td>
+                                        <td>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            DXF-7770150
+                                        </td>
+                                        <td>
+                                            <span class="text-blue">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
+                                            </span>
+                                        </td>
+                                        <td>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            DXF-7770150
+                                        </td>
+                                        <td>
+                                            <span class="text-blue">
+                                                24/12/2025
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="status active">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 4 5" fill="none">
+                                                    <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                                </svg>
+                                                OPEN
+                                            </span>
+                                        </td>
+                                        <td>
+                                            Hosting & servers support
+                                        </td>
+                                        <td>
+                                            09 Mei 2025  19:45 WIB
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Right Content -->
-                <div class="col-md-3">
-                    <div class="card blue-color ads">
-
                     </div>
                 </div>
             </div>

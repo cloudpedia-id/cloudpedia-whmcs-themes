@@ -373,6 +373,7 @@ body {
     margin-bottom: 20px;
     padding: 20px;
     box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.10);
+    position: relative;
 }
 
 .card .card-heading{
@@ -493,8 +494,14 @@ body {
     font-weight: 600;
     border-radius: 3px;
     padding: 3px 15px;
+}
 
+.dashboard-page .container-fluid .profile .media .media-left .media-detail .status-account.active{
     background: radial-gradient(3395.84% 127.75% at 0% 23.08%, rgba(28, 111, 255, 0.75) 0%, rgba(15, 68, 160, 0.75) 100%);
+}
+
+.dashboard-page .container-fluid .profile .media .media-left .media-detail .status-account.expired{
+    background: #304166;
 }
 
 .dashboard-page .container-fluid .profile .media .media-left .media-detail ul{
@@ -606,6 +613,10 @@ body {
     display: flex;
     align-items: center;
     gap: 3px;
+}
+
+.dashboard-page .container-fluid .profile .media .media-right .balance-card .balance-button a:hover{
+    background: rgba(255, 255, 255, 0.45);
 }
 
 /* Profile Dashboard Stats */
@@ -1278,7 +1289,6 @@ table.dataTable thead th {
     font-size: 12px;
     font-weight: 500;
     text-align: left;
-    border-radius: 5px;
 }
 
 table.dataTable tbody td{
@@ -1286,15 +1296,21 @@ table.dataTable tbody td{
     font-size: 12px;
     font-weight: 500;
     vertical-align: middle;
-    border-radius: 5px;
 }
+
+table.dataTable tbody td .text-green{ color: #28BA6D; }
+table.dataTable tbody td .text-red  { color: #F14D11; }
+table.dataTable tbody td .text-blue  { color: #3299EE; }
 
 table.dataTable tbody tr:hover {
     background: #EFF5FC;
 }
 
 .status {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     width: 115px;
     padding: 3px 15px;
     border-radius: 3px;
@@ -1315,9 +1331,6 @@ table.dataTable tbody td .status.cancelled { background: rgba(199, 17, 17, 0.20)
 .status.cancel    { background: rgba(230, 17, 241, 0.20); color: #2F1C6A; }
 .status.refund    { background: rgba(17, 107, 241, 0.20); color: #3299EE; }
 
-table.dataTable tbody td .text-green{ color: #28BA6D; }
-table.dataTable tbody td .text-red  { color: #F14D11; }
-
 table.dataTable tbody td .action-icon{
     color: #6C757D;
 }
@@ -1328,6 +1341,29 @@ table.dataTable tbody td .action-icon:hover{
 
 table.dataTable tbody td .action-icon svg{
     display: block;
+}
+
+/* Custom Pagination */
+.dt-container .dt-paging button.dt-paging-button {
+    color: #304166 !important;
+    font-size: 12px;
+    font-weight: 600;
+    border: 0.3px solid #6C757D !important;
+    background: #fff !important;
+}
+
+/* Halaman aktif */
+.dt-container .dt-paging button.dt-paging-button:hover,
+.dt-container .dt-paging button.dt-paging-button.current,
+.dt-container .dt-paging button.dt-paging-button.current:hover {
+    background: linear-gradient(90deg, #F3A4FF 0%, #CCC3FF 100%) !important;
+    color: #fff !important;
+}
+
+.dt-container .dt-paging button.dt-paging-button.disabled {
+    background: #B5B5B5 !important;
+    color: #6C757D !important;
+    opacity: 0.7;
 }
 
 /* END DATATABLES */
@@ -1358,6 +1394,15 @@ table.dataTable tbody td .action-icon svg{
 .status-filters .filter-btn:hover {
     background: linear-gradient(90deg, #F3A4FF 0%, #CCC3FF 100%);
     color: #fff;
+}
+
+.status-filters .filter-btn .number{
+    color: #fff;
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 5px;
+    background: #6C757D;
+    padding: 1px 5px;
 }
 
 .my-services tbody td .small {
@@ -1635,3 +1680,4 @@ table.dataTable tbody td .action-icon svg{
 .my-invoices-detail .invoice-content .footer-btn .btn:hover{
     background: #e0dedc;
 }
+
