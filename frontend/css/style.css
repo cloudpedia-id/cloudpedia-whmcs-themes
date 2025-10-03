@@ -40,9 +40,9 @@ body {
     border-radius: 15px;
     padding: 20px;
     margin: auto 0;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(100px);
-    -webkit-backdrop-filter: blur(100px);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 10;
 }
 
@@ -221,8 +221,11 @@ body {
     background: #fff;
     height: 65px;
     padding: 0 130px;
-    margin-bottom: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-page .custom-navbar.center-navbar{
+    justify-content: center;
 }
 
 .dashboard-page .custom-navbar .navs{
@@ -239,6 +242,9 @@ body {
     border-radius: 5px;
     transition: all 0.2s;
     padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .dashboard-page .custom-navbar .navs.main-nav li a{
@@ -298,7 +304,7 @@ body {
 /* End Navbar */
 
 .dashboard-page .alerts{
-    margin: 0 130px 20px 130px;
+    margin: 10px 130px;
 }
 
 .dashboard-page .alerts .custom-alert{
@@ -451,12 +457,12 @@ body {
 
 /* Content */
 .dashboard-page .container-fluid{
-    margin: 0 90px;
+    margin: 20px 90px;
 }
 
 .server-content-img {
     width: 250px;
-    margin-top: -80px;
+    margin-top: -100px;
 }
 
 /* Profile */
@@ -922,14 +928,14 @@ body {
 }
 
 /* Form */
-.form-inline{
+.form-inline.select{
     display: flex;
     gap: 10px;
     align-items: center;
     margin-bottom: 10px;
 }
 
-.form-inline .form-control{
+.form-inline.select .form-control{
     width: 175px;
     font-size: 10px;
     font-weight: 400;
@@ -1085,9 +1091,10 @@ body {
     top: 0;
     left: 0;
     border-radius: 0 10px 10px 0;
-    background: linear-gradient(180deg, rgba(59, 130, 246, 0.7) 27.64%, rgb(147, 51, 234) 95.52%), rgba(0, 0, 0, 0.00);
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.7) 27.64%, rgba(147, 51, 234, 1) 95.52%), rgba(0, 0, 0, 0.00);
     box-shadow: 0 56px 64px -10px #8E7DF8, 0 64px 64px -30px #BD01FF;
-    backdrop-filter: blur(80px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     padding: 10px 0;
     z-index: 100;
     transition: width 0.5s ease;
@@ -1131,50 +1138,111 @@ body {
     margin: 0 16px;
 }
 
-.sidebar .menu li{
+.sidebar .menu li .menu-item{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 5px 0;
-    padding-left: 2px;
+    text-decoration: none;
     color: #fff;
     font-size: 10px;
     font-weight: 700;
+    width: 100%;
+    margin: 5px 0;
+    padding-left: 2px;
+    height: 39px;
     cursor: pointer;
 }
 
-.sidebar .menu li:hover{
+.sidebar .menu li .menu-item:hover,
+.sidebar .menu li.has-submenu.open .menu-item{
     /* background: rgba(36, 34, 32, 0.04); */
     background: linear-gradient(90deg, rgba(59, 130, 246, 0.3) 0%, rgba(147, 51, 234, 0.3) 100%), rgba(0, 0, 0, 0.04);
     border-radius: 10px;
 }
 
-.sidebar .menu li .menu-item{
+.sidebar .menu li .menu-item .item-name{
     display: flex;
     align-items: center;
 }
 
-.sidebar .menu li .menu-item .icon-menu{
+.sidebar .menu li .menu-item .item-name .icon-menu{
     padding: 12px 14px;
 }
 
-.sidebar .menu li .menu-item .text{
+.sidebar .menu li .menu-item .item-name .text{
     display: none;
     white-space: nowrap;
 }
 
-.sidebar.expanded .menu li .menu-item .text{
+.sidebar.expanded .menu li .menu-item .item-name .text{
     display: block;
 }
 
-.sidebar .menu li .more-icon{
+.sidebar .menu li .menu-item .more-icon{
     display: none;
 }
 
-.sidebar.expanded .menu li .more-icon{
+.sidebar.expanded .menu li .menu-item .more-icon{
     display: block;
     padding: 12px 14px;
+    transition: transform 0.2s ease;
 }
+
+/* Putar more icon saat submenu terbuka */
+.sidebar .has-submenu.open .menu-item .more-icon{
+    transform: rotate(-90deg);
+}
+
+/* Submenu */
+.sidebar .has-submenu .submenu{
+    opacity: 0;
+    transform: translateX(-15px);
+    visibility: hidden;
+    position: absolute;
+    width: 200px;
+    margin-left: 100%;
+    margin-top: -40px;
+    padding: 5px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(243, 164, 255, 1) 0%, rgba(204, 195, 255, 1) 100%);
+    box-shadow: 0 64px 64px -32px rgba(142, 125, 248, 0.56);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.sidebar .has-submenu.open .submenu {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.sidebar .submenu .submenu-title{
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.sidebar .submenu li{
+    margin: 10px 5px;
+}
+
+.sidebar .submenu li a {
+    display: block;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid rgba(245, 239, 235, 0.15);
+}
+
+.sidebar .submenu li a:hover {
+    background: rgba(36, 34, 32, 0.1);
+}
+/* End Submenu */
 
 .sidebar .messages{
     color: rgba(255, 255, 255, 0.40);
@@ -1681,3 +1749,252 @@ table.dataTable tbody td .action-icon svg{
     background: #e0dedc;
 }
 
+/* Announcement */
+.announcement .card{
+    border-radius: 0 0 0 15px;
+    box-shadow: none;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.announcement .update-content{
+    width: 60%;
+}
+
+.announcement .update-content .update-date{
+    color: #6C757D;
+    font-size: 9px;
+    font-weight: 400;
+}
+
+.announcement .update-content .update-title{
+    color: #6C757D;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.announcement .update-content .update-text{
+    color: #6C757D;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.announcement .update-content .update-list li{
+    color: #6C757D;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.announcement .update-content .btn-more{
+    color: #2563EB;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid #2563EB;
+    padding: 12px 15px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+
+.announcement .update-content .btn-more:hover{
+    color: #fff;
+    background: #2563EB;
+}
+
+.announcement .update-banner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 35%;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%);
+    overflow: hidden;
+}
+
+.announcement .update-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Page Header */
+.page-header-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    padding: 10px 200px;
+}
+
+.page-header-section .left-header{
+    width: 50%;
+}
+
+.page-header-section .left-header h2{
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.page-header-section .left-header p{
+    color: #6C757D;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.page-header-section .right-header .form-inline .search-box .form-control{
+    width: 356px;
+    box-shadow: none;
+}
+
+.page-header-section .right-header .form-inline .search-box .form-control::placeholder{
+    color: #6C757D;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* Renew Services */
+.renew-services{
+    display: flex;
+    gap: 5px;
+}
+
+.renew-services .card.left{
+    flex: 2;
+    border: 0.5px solid #6C757D;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.10)
+}
+
+.renew-services .card.right{
+    flex: 1;
+    border: 1px solid #fff;
+    box-shadow: 0 4px 35px 0 rgba(142, 125, 248, 0.10);
+}
+
+/* Left Side */
+.renew-services .card.left .plan{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.renew-services .card.left .plan .plan-header .plan-title{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.renew-services .card.left .plan .plan-header .plan-title h5{
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.renew-services .card.left .plan .plan-header .plan-title .domain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 10px;
+    border-radius: 3px;
+    background: rgba(17, 107, 241, 0.20);
+    color: #3299EE;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.renew-services .card.left .plan .plan-header .plan-date{
+    color: #6C757D;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.renew-services .card.left .plan .renew-badge{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 40px;
+    border-radius: 2px;
+    background: rgba(241, 77, 17, 0.20);
+    color: #F14D11;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.renew-services .card.left .add-btn{
+    display: flex;
+    justify-content: end;
+    border-top: 0.5px solid #6C757D;
+    padding-top: 20px;
+}
+
+.renew-services .card.left .add-btn .btn{
+    padding: 10px 60px;
+}
+
+/* Right side */
+.renew-services .card.right .order-summary{
+    margin-bottom: 50px;
+}
+
+.renew-services .card.right .order-summary h4{
+    color: #6C757D;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 0;
+    border-bottom: 0.5px solid #6C757D;
+    margin-top: 0;
+    padding-bottom: 30px;
+}
+
+.renew-services .card.right .order-summary .order-subtotal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.renew-services .card.right .order-summary p{
+    color: #6C757D;
+    font-size: 10px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.renew-services .card.right .order-summary .order-subtotal span{
+    color: #212529;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.renew-services .card.right .order-summary .order-total{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.renew-services .card.right .order-summary .order-total h5{
+    color: #212529;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.renew-services .card.right .add-btn{
+    display: flex;
+    justify-content: center;
+}
+
+.renew-services .card.right .add-btn .btn{
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    background: #139BF9;
+    border-radius: 3px;
+    width: 100%;
+    padding: 15px 20px;
+}
+
+.renew-services .card.right .add-btn .btn:hover{
+    background: #0e75d0;
+}
