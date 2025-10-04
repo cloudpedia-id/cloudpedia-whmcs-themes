@@ -13,7 +13,7 @@ body {
 
 /* Left Section */
 .login-page .announcements {
-    height: 100vh;              
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -32,7 +32,7 @@ body {
 
 
 .login-page .logo {
-    width: 114px;
+    width: 130px;
 }
 
 .login-page .announcement-box {
@@ -68,24 +68,24 @@ body {
 
 
 .login-page .announcement-box h3 {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
 }
 
 .login-page .announcement-box h4 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     color: #ffc107;
 }
 
 .login-page .announcement-box .date {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     color: #fff;
 }
 
 .login-page .announcement-box .desc{
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 400;
 }
 
@@ -117,13 +117,13 @@ body {
 .login-page .form-box h3 {
     color: #ffc107;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 10px;   
 }
 
 .login-page .form-box p {
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     margin-bottom: 20px;
 }
@@ -135,12 +135,12 @@ body {
 .login-page .form-box label {
     color: #fff;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .login-page .form-box a {
     color: #C0BFF6;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     text-decoration: underline;
 }
@@ -154,7 +154,7 @@ body {
     height: 40px;
     background-color: #1D1484;
     border: 1px solid #fff;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     color: #fff;
     border-radius: 6px;
@@ -175,13 +175,13 @@ body {
 
 .login-page .form-box .policy{
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
 }
 
 .login-page .form-box .register a{
     color: #C0BFF6;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 500;
 }
@@ -195,7 +195,7 @@ body {
 .news-alert{
     background: #fff;
     color: #000;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
     height: 65px;
     padding: 0 130px;
@@ -236,12 +236,12 @@ body {
 
 .dashboard-page .custom-navbar .navs li a{
     text-decoration: none;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
     border: none;
     border-radius: 5px;
     transition: all 0.2s;
-    padding: 12px 15px;
+    padding: 12px 13px;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -253,7 +253,17 @@ body {
 
 .dashboard-page .custom-navbar .navs.nav-extra li a{
     color: #232B37;
-    
+}
+
+.dashboard-page .custom-navbar .navs li .badge{
+    background: #6C757D;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 5px;
+    border-radius: 2px;
+    margin-left: 3px;
+    transition: all 0.2s;
 }
 
 .dashboard-page .custom-navbar .navs li.active a {
@@ -268,39 +278,28 @@ body {
     color: #fff;
 }
 
-.dashboard-page .custom-navbar .navs li .badge{
-    background: #6C757D;
-    color: #fff;
-    font-size: 9px;
-    font-weight: 500;
-    border-radius: 2px;
-    margin-left: 5px;
-    transition: all 0.2s;
-}
-
-.dashboard-page .custom-navbar .navs li:hover .badge,
-.dashboard-page .custom-navbar .navs li.active .badge,
-.dashboard-page .custom-navbar .navs li.active:hover .badge{
+.dashboard-page .custom-navbar .navs.main-nav li:hover .badge,
+.dashboard-page .custom-navbar .navs.main-nav li.active .badge,
+.dashboard-page .custom-navbar .navs.main-nav li.active:hover .badge{
     color: #BD01FF;
     background: #fff;
 }
 
-.dashboard-page .custom-navbar .navs li .status-nav{
+.dashboard-page .custom-navbar .navs.nav-extra li .status-nav{
     color: #232b37;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
     padding: 12px 15px;
 }
 
-.dashboard-page .custom-navbar .navs li .status-nav:hover{
+.dashboard-page .custom-navbar .navs.nav-extra li:hover .status-nav{
     color: #F211C8;
 }
 
-.dashboard-page .custom-navbar .navs li .status-nav:hover .badge{
+.dashboard-page .custom-navbar .navs.nav-extra li:hover .status-nav .badge{
     background: linear-gradient(90deg, #730384 0%, #F211C8 100%);
     color: #fff;
 }
-
 /* End Navbar */
 
 .dashboard-page .alerts{
@@ -337,14 +336,14 @@ body {
 
 .dashboard-page .alerts .custom-alert h3{
     color: #212529;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     margin: 0;
 }
 
 .dashboard-page .alerts .custom-alert .alert-text{
     color: #6C757D;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
 }
 
@@ -362,7 +361,7 @@ body {
 .dashboard-page .alerts .custom-alert .alert-actions .btn{
     color: #495057;
     background: #F2F0F0;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 500;
     padding: 10px 30px;
 }
@@ -391,14 +390,14 @@ body {
 
 .card .card-heading h5{
     color: #212529;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     margin: 0;
 }
 
 .card .card-heading p{
     color: #6C757D;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     margin: 0;
 }
@@ -417,7 +416,7 @@ body {
 .btn-type-1{
     color: #495057;
     background: #F2F0F0;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     padding: 6px 10px;
     border-radius: 3px;
@@ -430,7 +429,7 @@ body {
 .btn-type-2{
     color: #fff;
     background: #304166;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     padding: 6px 10px;
     border-radius: 3px;
@@ -444,7 +443,7 @@ body {
 .btn-type-3{
     color: #495057;
     background: #EFF5FC;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 500;
     padding: 5px 15px;
     border-radius: 5px;
@@ -487,7 +486,7 @@ body {
 }
 
 .dashboard-page .container-fluid .profile .media .media-left .media-detail h4{
-    font-size: 27px;
+    font-size: 29px;
     font-weight: 700;
     color: #304166;
     margin-bottom: 0px;
@@ -496,7 +495,7 @@ body {
 .dashboard-page .container-fluid .profile .media .media-left .media-detail .status-account{
     text-transform: uppercase;
     color: #fff;
-    font-size: 6px;
+    font-size: 8px;
     font-weight: 600;
     border-radius: 3px;
     padding: 3px 15px;
@@ -526,7 +525,7 @@ body {
 }
 
 .dashboard-page .container-fluid .profile .media .media-left .media-detail ul li span{
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -543,7 +542,7 @@ body {
     text-decoration: none;
     color: #304166;
     font-weight: 600;
-    font-size: 10px;
+    font-size: 12px;
     padding: 20px 0;
 }
 
@@ -595,13 +594,13 @@ body {
 
 .dashboard-page .container-fluid .profile .media .media-right .balance-card .balance-label{
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
 }
 
 .dashboard-page .container-fluid .profile .media .media-right .balance-card .balance-amount{
     color: #fff;
-    font-size: 23px;
+    font-size: 25px;
     font-weight: 900;
     margin-top: 5px;
     margin-bottom: 0px;
@@ -614,7 +613,7 @@ body {
     border-radius: 20px;
     padding: 5px 10px;
     text-decoration: none;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -661,7 +660,7 @@ body {
 
 .dashboard-page .container-fluid .profile .dashboard-stats .stat-card .stat-card-top h5 {
     margin: 0;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     color: #343A40;
 }
@@ -673,14 +672,14 @@ body {
 }
 
 .dashboard-page .container-fluid .profile .dashboard-stats .stat-card .stat-info .stat-number {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 800;
     color: #495057;
 }
 
 .dashboard-page .container-fluid .profile .dashboard-stats .stat-card .stat-info .stat-text p {
     margin: 0;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
     color: #495057;
 }
@@ -688,36 +687,23 @@ body {
 /* Renew and Domains */
 .renew,
 .domains{
-    height: 144px;
-}
-
-.card.renew .card-heading,
-.card.domains .card-heading{
+    height: 175px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 50px;
 }
 
 .card.renew .card-info{
     color: #6C757D;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
-    margin-right: 50px;
-}
-
-.card.domains .card-info{
-    margin-top: -10px;
-    height: 40px;
-    display: flex;
-    border-radius: 5px;
 }
 
 .card.domains .card-info .btn-register{
     height: 100%;
     color: #fff;
     background: #139BF9;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     padding: 6px 10px;
     border-radius: 0px;
@@ -731,7 +717,7 @@ body {
     height: 100%;
     color: #304166;
     background: #F2F0F0;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     padding: 6px 10px;
     border-radius: 0 3px 3px 0;
@@ -751,20 +737,21 @@ body {
     padding-bottom: 10px;
     border-bottom: 2px solid #EFF5FC;
     max-height: 345px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6A72DE transparent;
 }
 
 .card-list::-webkit-scrollbar {
-    width: 3px;
+    width: 2px;
 }
 
 .card-list::-webkit-scrollbar-thumb{
     background-color: #6A72DE;
-    border-radius: 3px;
+    border-radius: 2px;
 }
 
 .card-list .custom-list{
-    height: 45px;
     margin-bottom: 5px;
     padding: 10px 20px;
     display: flex;
@@ -795,20 +782,20 @@ body {
 }
 
 .card-list .custom-list .list-content .text-wrapper .list-text{
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 600;
     color: #212529;
 }
 
 .card-list .custom-list .list-content .text-wrapper .list-subtext{
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 400;
     color: #304166;
 }
 
 .card-list .custom-list .list-content .list-country{
     color: #666;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
 }
 
@@ -819,7 +806,7 @@ body {
     gap: 5px;
     padding: 3px 10px;
     border-radius: 3px;
-    font-size: 7px;
+    font-size: 9px;
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -866,7 +853,7 @@ body {
     height: 29.31px;
     border-radius: 5px 0 0 5px;
     margin: 0;
-    font-size: 11px;
+    font-size: 13px;
 }
 
 .search-box.large{
@@ -897,7 +884,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 800;
     color: #fff;
 }
@@ -915,14 +902,14 @@ body {
 
 .welcome ul li .welcome-text h4{
     color: #FFC107;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 700;
     margin: 5px 0;
 }
 
 .welcome ul li .welcome-text p{
     color: #fff;
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 500;
     margin: 0;
 }
@@ -937,7 +924,7 @@ body {
 
 .form-inline.select .form-control{
     width: 175px;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     color: #495057;
 }
@@ -947,7 +934,7 @@ body {
     border-radius: 3px;
     padding: 10px 15px;
     color: #304166;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
 }
 
@@ -957,7 +944,7 @@ body {
 
 .monitor-row{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 5px;
     margin: 10px 0;
@@ -972,7 +959,7 @@ body {
 
 .monitor-row .monitor-item h3{
     color: #212529;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     margin-top: 10px;
     margin-bottom: 0;
@@ -980,9 +967,8 @@ body {
 
 .monitor-row .monitor-item p{
     color: #6C757D;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
-    padding-bottom: 10px;
 }
 /* END RIGHT SECTION */
 
@@ -1011,12 +997,12 @@ body {
 
 /* Footer Left */
 .footer .footer-top .footer-content .footer-left{
-    width: 30%;
+    width: 35%;
 }
 
 .footer .footer-top .footer-content .footer-left .desc{
     color: #304166;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
 }
 
@@ -1029,19 +1015,19 @@ body {
 
 .footer .footer-top .footer-content .footer-left .contact-list span{
     color: #0F44A0;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
 }
 
 .footer .footer-top .footer-content .footer-left .contact-list span.address{
     color: #304166;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
 }
 
 .footer .footer-top .footer-content .footer-left .contact-title{
     color: #304166;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
 }
 
@@ -1062,7 +1048,7 @@ body {
 }
 
 .footer-col ul li a {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: #6C757D;
 }
@@ -1073,12 +1059,12 @@ body {
 
 .footer .footer-bottom{
     border-top: 1px solid rgba(0,0,0,0.1);;
-    padding: 10px 100px;
+    padding: 20px 100px 10px;
 }
 
 .footer .footer-bottom p{
     color: #304166;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
 }
 /* END FOOTER */
@@ -1144,7 +1130,7 @@ body {
     justify-content: space-between;
     text-decoration: none;
     color: #fff;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     width: 100%;
     margin: 5px 0;
@@ -1247,7 +1233,7 @@ body {
 .sidebar .messages{
     color: rgba(255, 255, 255, 0.40);
     text-align: center;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 500;
     text-transform: uppercase;
     margin: 3px;
@@ -1345,7 +1331,7 @@ body {
 .sidebar.expanded .messages .message-user .text{
     display: block;
     color: rgba(255, 255, 255, 0.56);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
 }
 /* END SIDEBAR */
@@ -1354,14 +1340,14 @@ body {
 /* DATATABLES */
 table.dataTable thead th {
     color: #495057;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     text-align: left;
 }
 
 table.dataTable tbody td{
     color: #495057;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     vertical-align: middle;
 }
@@ -1414,7 +1400,7 @@ table.dataTable tbody td .action-icon svg{
 /* Custom Pagination */
 .dt-container .dt-paging button.dt-paging-button {
     color: #304166 !important;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     border: 0.3px solid #6C757D !important;
     background: #fff !important;
@@ -1452,7 +1438,7 @@ table.dataTable tbody td .action-icon svg{
     padding: 5px 10px;
     margin-right: 5px;
     border-radius: 18px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
@@ -1466,7 +1452,7 @@ table.dataTable tbody td .action-icon svg{
 
 .status-filters .filter-btn .number{
     color: #fff;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
     border-radius: 5px;
     background: #6C757D;
@@ -1474,13 +1460,13 @@ table.dataTable tbody td .action-icon svg{
 }
 
 .my-services tbody td .small {
-    font-size: 7px;
+    font-size: 10px;
     font-weight: 400;
 }
 
 .my-services tbody td .text{
     color: #000;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -1491,7 +1477,7 @@ table.dataTable tbody td .action-icon svg{
 
 .my-services tbody td .subtext {
     color: #2759CD;
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 400;
     display: flex;
     align-items: center;
@@ -1500,7 +1486,7 @@ table.dataTable tbody td .action-icon svg{
 
 .my-domains tbody td .text{
     color: #2759cd;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     display: flex;
     align-items: center;
@@ -1511,8 +1497,8 @@ table.dataTable tbody td .action-icon svg{
 .my-domains tbody td .checkbox{
     appearance: none; /* Hilangkan default browser */
     -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 2px;
     border: none !important;
     outline: none !important;
@@ -1530,7 +1516,7 @@ table.dataTable tbody td .action-icon svg{
 .my-domains tbody td .checkbox:checked::after {
     content: "\2714"; /* Lambang centang */
     color: #fff;
-    font-size: 12px;
+    font-size: 14px;
     position: absolute;
     left: 4px;
 }
@@ -1612,14 +1598,13 @@ table.dataTable tbody td .action-icon svg{
     background: #fff;
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.10);
     padding: 5px 10px;
-    width: 125px;
 }
 
 .dropdown-menu > li > a {
     padding: 8px;
     margin: 2px 0;
     color: #495057;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
     border-radius: 6px;
 }
@@ -1644,11 +1629,6 @@ table.dataTable tbody td .action-icon svg{
     padding-top: 50px;
 }
 
-.dashboard-page .my-invoices-detail .table-container tr td .status{
-    font-size: 10px;
-    width: 70px;
-}
-
 .my-invoices-detail .invoice-header{
     background: #408CFF;
     height: 78px;
@@ -1661,7 +1641,7 @@ table.dataTable tbody td .action-icon svg{
 
 .my-invoices-detail .invoice-header .invoice-detail{
     color: #000;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     display: flex;
     justify-content: space-between;
@@ -1685,37 +1665,37 @@ table.dataTable tbody td .action-icon svg{
 
 .my-invoices-detail .invoice-content .invoice-number h4{
     color: #212529;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
 }
 
 .my-invoices-detail .invoice-content .invoice-number .status{
-    font-size: 10px;
+    font-size: 12px;
     width: 70px;
 }
 
 .my-invoices-detail .invoice-content h5{
     color: #232B37;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
 }
 
 .my-invoices-detail .invoice-content p{
     color: #232B37;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     margin: 0;
 }
 
 .my-invoices-detail .invoice-content table th{
     color: #6C757D;
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 500;
 }
 
 .my-invoices-detail .invoice-content table td{
     color: #232B37;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
 }
 
@@ -1765,13 +1745,13 @@ table.dataTable tbody td .action-icon svg{
 
 .announcement .update-content .update-date{
     color: #6C757D;
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 400;
 }
 
 .announcement .update-content .update-title{
     color: #6C757D;
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 600;
 }
 
@@ -1833,7 +1813,7 @@ table.dataTable tbody td .action-icon svg{
 
 .page-header-section .left-header h2{
     color: #000;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
 }
 
@@ -1846,11 +1826,11 @@ table.dataTable tbody td .action-icon svg{
 .page-header-section .right-header .form-inline .search-box .form-control{
     width: 356px;
     box-shadow: none;
+    font-size: 14px;
 }
 
 .page-header-section .right-header .form-inline .search-box .form-control::placeholder{
     color: #6C757D;
-    font-size: 12px;
     font-weight: 400;
 }
 
@@ -1888,7 +1868,7 @@ table.dataTable tbody td .action-icon svg{
 
 .renew-services .card.left .plan .plan-header .plan-title h5{
     color: #000;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 700;
 }
 
@@ -1907,7 +1887,7 @@ table.dataTable tbody td .action-icon svg{
 
 .renew-services .card.left .plan .plan-header .plan-date{
     color: #6C757D;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 500;
 }
 
@@ -1919,7 +1899,7 @@ table.dataTable tbody td .action-icon svg{
     border-radius: 2px;
     background: rgba(241, 77, 17, 0.20);
     color: #F14D11;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
 }
 
@@ -1941,7 +1921,7 @@ table.dataTable tbody td .action-icon svg{
 
 .renew-services .card.right .order-summary h4{
     color: #6C757D;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     padding: 10px 0;
     border-bottom: 0.5px solid #6C757D;
@@ -1957,14 +1937,14 @@ table.dataTable tbody td .action-icon svg{
 
 .renew-services .card.right .order-summary p{
     color: #6C757D;
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 400;
     margin: 0;
 }
 
 .renew-services .card.right .order-summary .order-subtotal span{
     color: #212529;
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -1976,7 +1956,7 @@ table.dataTable tbody td .action-icon svg{
 
 .renew-services .card.right .order-summary .order-total h5{
     color: #212529;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
 }
 
@@ -1987,7 +1967,7 @@ table.dataTable tbody td .action-icon svg{
 
 .renew-services .card.right .add-btn .btn{
     color: #fff;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 600;
     background: #139BF9;
     border-radius: 3px;
@@ -1997,4 +1977,63 @@ table.dataTable tbody td .action-icon svg{
 
 .renew-services .card.right .add-btn .btn:hover{
     background: #0e75d0;
+}
+
+/* Order New Service */
+.card-wrapper {
+    display: flex;
+    gap: 15px;
+    padding-top: 10px;
+    overflow-x: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #6A72DE transparent;
+}
+
+.card-wrapper .card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.card-wrapper .card:hover{
+    transform: translateY(-5px);
+}
+
+.card-wrapper .trending-badge{
+    background: linear-gradient(90deg, #3B82F6 0%, #9333EA 100%), rgba(0, 0, 0, 0.00);
+    border-radius: 999px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 16px;
+}
+
+.card-wrapper h3{
+    color: #111827;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.card-wrapper p{
+    color: #4B5563;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card-wrapper .features{
+    display: flex;
+    gap: 10px;
+    align-items: start;
+    justify-content: start;
+    width: 100%;
+}
+
+.card-wrapper .features .features-icon
+
+.card-wrapper .features ul li{
+    color: #374151;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 3px 0;
 }
