@@ -1987,6 +1987,7 @@ table.dataTable tbody td .action-icon svg{
     overflow-x: scroll;
     scrollbar-width: thin;
     scrollbar-color: #6A72DE transparent;
+    position: relative;
 }
 
 .card-wrapper .card{
@@ -1994,6 +1995,7 @@ table.dataTable tbody td .action-icon svg{
     flex-direction: column;
     align-items: center;
     transition: transform 0.3s ease;
+    flex: 0 0 auto;
 }
 
 .card-wrapper .card:hover{
@@ -2029,11 +2031,97 @@ table.dataTable tbody td .action-icon svg{
     width: 100%;
 }
 
-.card-wrapper .features .features-icon
+.card-wrapper .features.prices{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.card-wrapper .features .prices-item{
+    background: #F0FDF4;
+    border-radius: 8px;
+    padding: 5px 0;
+    width: 100%;
+}
+
+.card-wrapper .features .prices-item h5{
+    color: #374151;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.card-wrapper .features .prices-item span{
+    color: #16A34A;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.card-wrapper .features .features-icon{
+    width: 20px;
+}
 
 .card-wrapper .features ul li{
     color: #374151;
     font-size: 14px;
     font-weight: 400;
     margin: 3px 0;
+}
+
+.card-wrapper .premium-badge{
+    border-radius: 12px;
+    border: 1px solid #E9D5FF;
+    background: linear-gradient(90deg, #FAF5FF 0%, #EFF6FF 100%), rgba(0, 0, 0, 0.00);
+    width: 237px;
+    padding: 10px;
+    display: flex;
+    align-items: start;
+    gap: 10px;
+}
+
+.card-wrapper .premium-badge .star-icon{
+    margin-top: 3px;
+}
+
+.card-wrapper .premium-badge p{
+    color: #1F2937;
+    font-size: 13px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.card-wrapper .premium-badge span{
+    color: #9333EA;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.card-wrapper .order-button{
+    padding: 10px 22px;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #3B82F6 0%, #9333EA 100%), rgba(0, 0, 0, 0.00);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.00), 0 0 0 0 rgba(0, 0, 0, 0.00), 0 10px 15px -3px rgba(0, 0, 0, 0.10), 0 4px 6px -4px rgba(0, 0, 0, 0.10);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.card-wrapper .order-button:hover{
+    background: linear-gradient(90deg, #60A5FA 0%, #A855F7 100%);
+    box-shadow: 0 4px 20px rgba(147, 51, 234, 0.4);
+}
+
+.card-wrapper .order-button img{
+    width: 20px;
+}
+
+.card-wrapper .order-button span{
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
 }
