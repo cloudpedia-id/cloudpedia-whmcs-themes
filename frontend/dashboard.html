@@ -5,790 +5,825 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
 
-    <!-- Bootstrap 3 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
 </head>
-<body id="dashboard">
-    <section class="dashboard-page">
+<body>
+    <section class="bg-[#F5F6FB]">
         <!-- Top Bar News -->
-        <div class="news-alert">
-            <strong class="news">News:</strong> Limited-Time Offer: 50% Off Hosting!
+        <div class="bg-[#fff] text-[#000] h-[65px] text-[14px] font-normal px-[130px] flex items-center mb-[5px] shadow">
+            <strong class="bg-[#c4c3f6] font-medium rounded-[5px] mr-[20px] py-[5px] px-[12px]">News:</strong>
+            <p>Limited-Time Offer: 50% Off Hosting!</p>
         </div>
 
-        <!-- Navigation Tabs -->
-        <div class="custom-navbar">
-            <ul class="navs main-nav list-unstyled">
-                <li class="active">
-                    <a href="#">Overview</a>
+        <!-- Navbar Start -->
+        <div class="flex justify-between items-center bg-[#fff] h-[65px] px-[130px] shadow">
+            <ul class="list-none flex items-center gap-[3px]">
+                <li>
+                    <a href="#" class="nav-item nav-active flex items-center gap-[5px] whitespace-nowrap text-[12px] font-medium text-[#6c757d] rounded-[5px] p-[12px] transition-all duration-200">
+                        Overview
+                    </a>
                 </li>
                 <li>
-                    <a href="#">My Service</a>
+                    <a href="#" class="nav-item flex items-center gap-[5px] whitespace-nowrap text-[12px] font-medium text-[#6c757d] rounded-[5px] p-[12px] transition-all duration-200 ease-in-out">
+                        My Service
+                    </a>
                 </li>
                 <li>
-                    <a href="#">My Domain <span class="badge">100</span></a>
+                    <a href="#" class="nav-item group flex items-center gap-[5px] whitespace-nowrap text-[12px] font-medium text-[#6c757d] rounded-[5px] p-[12px] transition-all duration-200 ease-in-out">
+                        My Domain <span class="bg-[#6C757D] text-[11px] font-medium text-[#fff] px-[5px] rounded-[2px] transition-all duration-200 ease-in-out group-hover:bg-[#fff] group-hover:text-[#BD01FF]">100</span>
+                    </a>
                 </li>
                 <li>
-                    <a href="#">My Invoices <span class="badge">100</span></a>
+                    <a href="#" class="nav-item group flex items-center gap-[5px] whitespace-nowrap text-[12px] font-medium text-[#6c757d] rounded-[5px] p-[12px] transition-all duration-200 ease-in-out">
+                        My Invoices <span class="bg-[#6C757D] text-[11px] font-medium text-[#fff] px-[5px] rounded-[2px] transition-all duration-200 ease-in-out group-hover:bg-[#fff] group-hover:text-[#BD01FF]">100</span>
+                    </a>
                 </li>
                 <li>
-                    <a href="#">My Support Tickets <span class="badge">100</span></a>
+                    <a href="#" class="nav-item group flex items-center gap-[5px] whitespace-nowrap text-[12px] font-medium text-[#6c757d] rounded-[5px] p-[12px] transition-all duration-200 ease-in-out">
+                        My Support Tickets <span class="bg-[#6C757D] text-[11px] font-medium text-[#fff] px-[5px] rounded-[2px] transition-all duration-200 ease-in-out group-hover:bg-[#fff] group-hover:text-[#BD01FF]">100</span>
+                    </a>
                 </li>
                 <li>
-                    <a href="#">Network Status</a>
+                    <a href="#" class="nav-item flex items-center gap-[5px] whitespace-nowrap text-[12px] font-medium text-[#6c757d] rounded-[5px] p-[12px] transition-all duration-200 ease-in-out">
+                        Network Status
+                    </a>
                 </li>
                 <li>
-                    <a href="#">View Available Addons</a>
+                    <a href="#" class="nav-item flex items-center gap-[5px] whitespace-nowrap text-[12px] font-medium text-[#6c757d] rounded-[5px] p-[12px] transition-all duration-200 ease-in-out">
+                        View Available Addons
+                    </a>
                 </li>
             </ul>
-            <ul class="navs nav-extra list-unstyled">
+            <ul class="list-none flex gap-[3px]">
                 <li>
-                    <a href="#">Order New Services</a>
+                    <a href="#" class="nav-extra flex items-center gap-[5px] whitespace-nowrap text-[12px] font-medium text-[#232b37] rounded-[5px] p-[12px] transition-all duration-200 ease-in-out">
+                        Order New Services
+                    </a>
                 </li>
                 <li>
-                    <a href="#">Register a New Domain</a>
+                    <a href="#" class="nav-extra flex items-center gap-[5px] whitespace-nowrap text-[12px] font-medium text-[#232b37] rounded-[5px] p-[12px] transition-all duration-200 ease-in-out">
+                        Register a New Domain
+                    </a>
                 </li>
             </ul>
         </div>
+        <!-- Navbar End -->
 
-        <!-- Alerts -->
-        <div class="alerts">
+        <!-- Alerts Start -->
+        <div class="my-[15px] mx-[130px]">
             <!-- Alert 1 -->
-            <div class="custom-alert yellow-warning">
-                <div class="alert-content">
-                    <img src="images/yellow-warning.svg" alt="Warning Icon" class="icon-alert">
+            <div class="flex items-center justify-between rounded-[10px] bg-[#fff] border-l-4 border-l-[#f7931e] shadow-sm py-[10px] px-[30px] mb-[10px]">
+                <div class="flex items-center gap-[20px]">
+                    <img src="images/yellow-warning.svg" alt="Warning Icon">
                     <div class="text-wrapper">
-                        <h3>Scheduled Network Status</h3>
-                        <div class="alert-text">
+                        <h3 class="text-[#212529] text-[14px] font-bold">
+                            Scheduled Network Status
+                        </h3>
+                        <p class="text-[#6C757D] text-[12px] font-medium">
                             There are upcoming maintenance events which may impact our services.
-                        </div>
+                        </p>
                     </div>
                 </div>
-                <div class="alert-actions">
-                    <button class="btn">Learn more</button>
-                    <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true"><img src="images/close.svg" alt="close" class="close-button"></span>
+                <div class="flex items-center gap-[20px]">
+                    <a href="#" class="text-[#495057] bg-[#F2F0F0] font-medium text-[13px] rounded-[5px] px-[30px] py-[10px] hover:bg-[#e0dedc] transition-all duration-200 ease-in-out">
+                        Learn more
+                    </a>
+                    <button type="button" class="mx-[20px] hover:brightness-200" aria-label="Close">
+                        <span aria-hidden="true">
+                            <img src="images/close.svg" alt="close">
+                        </span>
                     </button>
                 </div>
             </div>
 
             <!-- Alert 2 -->
-            <div class="custom-alert yellow-warning">
-                <div class="alert-content">
-                    <img src="images/yellow-warning.svg" alt="Warning Icon" class="icon-alert">
+            <div class="flex items-center justify-between rounded-[10px] bg-[#fff] border-l-4 border-l-[#f7931e] shadow-sm py-[10px] px-[30px] mb-[10px]">
+                <div class="flex items-center gap-[20px]">
+                    <img src="images/yellow-warning.svg" alt="Warning Icon">
                     <div class="text-wrapper">
-                        <h3>Verify Registration</h3>
-                        <div class="alert-text">
-                            Please check your email and follow the link to verify your email address.
-                        </div>
+                        <h3 class="text-[#212529] text-[14px] font-bold">
+                            Scheduled Network Status
+                        </h3>
+                        <p class="text-[#6C757D] text-[12px] font-medium">
+                            There are upcoming maintenance events which may impact our services.
+                        </p>
                     </div>
                 </div>
-                <div class="alert-actions">
-                    <button class="btn">Resend Verification Email</button>
-                    <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true"><img src="images/close.svg" alt="close" class="close-button"></span>
+                <div class="flex items-center gap-[20px]">
+                    <a href="#" class="text-[#495057] bg-[#F2F0F0] font-medium text-[13px] rounded-[5px] px-[30px] py-[10px] hover:bg-[#e0dedc] transition-all duration-200 ease-in-out">
+                        Learn more
+                    </a>
+                    <button type="button" class="mx-[20px] hover:brightness-200" aria-label="Close">
+                        <span aria-hidden="true">
+                            <img src="images/close.svg" alt="close">
+                        </span>
                     </button>
                 </div>
             </div>
 
             <!-- Alert 3 -->
-            <div class="custom-alert red-warning">
-                <div class="alert-content">
-                    <img src="images/red-warning.svg" alt="Warning Icon" class="icon-alert">
+            <div class="flex items-center justify-between rounded-[10px] bg-[#fff] border-l-4 border-l-[#ED1C24] shadow-sm py-[10px] px-[30px] mb-[10px]">
+                <div class="flex items-center gap-[20px]">
+                    <img src="images/red-warning.svg" alt="Warning Icon">
                     <div class="text-wrapper">
-                        <h3>Overdue Invoices</h3>
-                        <div class="alert-text">
-                            You have 3 overdue invoice(s) with a total balance due of $43.96 USD. Pay them now to avoid any interruptions in service.
-                        </div>
+                        <h3 class="text-[#212529] text-[14px] font-bold">
+                            Scheduled Network Status
+                        </h3>
+                        <p class="text-[#6C757D] text-[12px] font-medium">
+                            There are upcoming maintenance events which may impact our services.
+                        </p>
                     </div>
                 </div>
-                <div class="alert-actions">
-                    <button class="btn">Pay Now</button>
-                    <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true"><img src="images/close.svg" alt="close" class="close-button"></span>
+                <div class="flex items-center gap-[20px]">
+                    <a href="#" class="text-[#495057] bg-[#F2F0F0] font-medium text-[13px] rounded-[5px] px-[30px] py-[10px] hover:bg-[#e0dedc] transition-all duration-200 ease-in-out">
+                        Learn more
+                    </a>
+                    <button type="button" class="mx-[20px] hover:brightness-200" aria-label="Close">
+                        <span aria-hidden="true">
+                            <img src="images/close.svg" alt="close">
+                        </span>
                     </button>
                 </div>
             </div>
         </div>
+        <!-- Alerts End -->
 
-        <!-- Content -->
-        <div class="container-fluid">
-            <div class="row ">
-                <!-- Left Content -->
-                <div class="col-md-9">
-                    <!-- Profile Card -->
-                    <div class="card profile">
-                        <div class="media">
-                            <div class="media-left">
-                                <div class="media-image">
-                                    <img src="images/profile.png" class="img-circle" width="90" alt="Avatar">
-                                </div>
-                                <div class="media-detail">
-                                    <h4>Hello, Baoxiang</h4>
-                                    <span class="status-account active">ACTIVE ACCOUNT</span>
-
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <img src="images/icon-location.svg" alt="location">
-                                            <span>661 Kembery Drive Onyx, US</span>
-                                        </li>
-                                        <li>
-                                            <img src="images/icon-email.svg" alt="email">
-                                            <span>codiv.team@gmail.com</span>
-                                        </li>
-                                    </ul>
-                                </div>
+        <!-- Content Start -->
+        <div class="my[20px] mx-[98px] grid grid-cols-12 gap-6">
+            <!-- Left Content -->
+            <div class="col-span-9">
+                <!-- Profile Card -->
+                <div class="bg-[#fff] shadow-md mb-[20px] py-[35px] px-[45px] rounded-[10px]">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-[30px]">
+                            <div class="media-image">
+                                <img src="images/profile.png" class="w-[90px] h-[90px] rounded-full object-cover object-center" alt="Avatar">
                             </div>
-                            <div class="media-right">
-                                <ul class="media-nav list-unstyled">
-                                    <li>
-                                        <a href="#">Account Details</a>
+                            <div class="media-detail">
+                                <h4 class="text-[#304166] font-bold text-[29px]">Hello, Baoxiang</h4>
+                                <span class="dashboard-account-active align-top text-[#fff] font-semibold text-[8px] rounded-[3px] py-[3px] px-[15px] uppercase">
+                                    ACTIVE ACCOUNT
+                                </span>
+
+                                <ul class="list-none">
+                                    <li class="flex items-center gap-[8px]">
+                                        <img src="images/icon-location.svg" alt="location">
+                                        <span class="text-[14px] font-semibold text-[#393e46]">661 Kembery Drive Onyx, US</span>
                                     </li>
-                                    <li>
-                                        <a href="#">Payment Methods</a>
-                                    </li>
-                                    <li class="edit-profile">
-                                        <a href="#">
-                                            <img src="images/icon-edit.svg" alt="edit icon">
-                                            Edit Profile
-                                        </a>
-                                    </li>
-                                    <li class="edit-more">
-                                        <a href="#">
-                                            ...
-                                        </a>
+                                    <li class="flex items-center gap-[8px]">
+                                        <img src="images/icon-email.svg" alt="email">
+                                        <span class="text-[14px] font-semibold text-[#393e46]">codiv.team@gmail.com</span>
                                     </li>
                                 </ul>
-                                <div class="balance-card">
-                                    <div class="balance-text">
-                                        <span class="balance-label">Current Balance</span>
-                                        <h2 class="balance-amount">1.456.000 IDR</h2>
-                                    </div>
-                                    <div class="balance-button">
-                                        <a href="#">
-                                            <img src="images/icon-checklist.svg" alt="topup">
-                                            Top Up
-                                        </a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-
-                        <!-- Dashboard Stats -->
-                        <div class="row dashboard-stats">
-                            <div class="col-sm-3">
-                                <div class="stat-card">
-                                    <div class="stat-card-top">
-                                        <div class="icon-box">
-                                            <img src="images/icon-service.svg" alt="Service Icon" width="15">
-                                        </div>
-                                        <h5>Service</h5>
-                                    </div>
-                                    <div class="stat-info">
-                                        <div class="stat-number">2</div>
-                                        <div class="stat-text">
-                                            <p>118 Produk/Layanan</p>
-                                            <p>Tertunda</p>
-                                        </div>
-                                    </div>
+                        <div class="media-right">
+                            <ul class="media-nav list-unstyled">
+                                <li>
+                                    <a href="#">Account Details</a>
+                                </li>
+                                <li>
+                                    <a href="#">Payment Methods</a>
+                                </li>
+                                <li class="edit-profile">
+                                    <a href="#">
+                                        <img src="images/icon-edit.svg" alt="edit icon">
+                                        Edit Profile
+                                    </a>
+                                </li>
+                                <li class="edit-more">
+                                    <a href="#">
+                                        ...
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="balance-card">
+                                <div class="balance-text">
+                                    <span class="balance-label">Current Balance</span>
+                                    <h2 class="balance-amount">1.456.000 IDR</h2>
                                 </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="stat-card">
-                                    <div class="stat-card-top">
-                                        <div class="icon-box">
-                                            <img src="images/icon-service.svg" alt="Domain Icon" width="15">
-                                        </div>
-                                        <h5>Domain</h5>
-                                    </div>
-                                    <div class="stat-info">
-                                        <div class="stat-number">103</div>
-                                        <div class="stat-text">
-                                            <p>118 Produk/Layanan</p>
-                                            <p>Tertunda</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="stat-card">
-                                    <div class="stat-card-top">
-                                        <div class="icon-box">
-                                            <img src="images/icon-service.svg" alt="Service Icon" width="15">
-                                        </div>
-                                        <h5>Service</h5>
-                                    </div>
-                                    <div class="stat-info">
-                                        <div class="stat-number">2</div>
-                                        <div class="stat-text">
-                                            <p>118 Produk/Layanan</p>
-                                            <p>Tertunda</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="stat-card">
-                                    <div class="stat-card-top">
-                                        <div class="icon-box">
-                                            <img src="images/icon-service.svg" alt="Domain Icon" width="15">
-                                        </div>
-                                        <h5>Domain</h5>
-                                    </div>
-                                    <div class="stat-info">
-                                        <div class="stat-number">103</div>
-                                        <div class="stat-text">
-                                            <p>118 Produk/Layanan</p>
-                                            <p>Tertunda</p>
-                                        </div>
-                                    </div>
+                                <div class="balance-button">
+                                    <a href="#">
+                                        <img src="images/icon-checklist.svg" alt="topup">
+                                        Top Up
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Renew Services and Domains -->
-                    <div class="row services-domains">
-                        <div class="col-md-5">
-                            <div class="card renew">
-                                <div class="card-heading">
-                                    <div class="card-heading-text">
-                                        <h5>Renew Services</h5>
-                                        <p>Renew Services</p>
+                    <!-- Dashboard Stats -->
+                    <div class="row dashboard-stats">
+                        <div class="col-sm-3">
+                            <div class="stat-card">
+                                <div class="stat-card-top">
+                                    <div class="icon-box">
+                                        <img src="images/icon-service.svg" alt="Service Icon" width="15">
                                     </div>
-                                    <div class="card-heading-btn">
-                                        <button class="btn btn-type-1">Renew Now</button>
-                                    </div>
+                                    <h5>Service</h5>
                                 </div>
-                                <div class="card-info">
-                                    You have 1 service(s) that are available for renewal soon. Renew them today for peace of mind.
+                                <div class="stat-info">
+                                    <div class="stat-number">2</div>
+                                    <div class="stat-text">
+                                        <p>118 Produk/Layanan</p>
+                                        <p>Tertunda</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-7">
-                            <div class="card domains">
-                                <div class="card-heading">
-                                    <div class="card-heading-text">
-                                        <h5>Domains</h5>
-                                        <p>Register a New Domain</p>
+
+                        <div class="col-sm-3">
+                            <div class="stat-card">
+                                <div class="stat-card-top">
+                                    <div class="icon-box">
+                                        <img src="images/icon-service.svg" alt="Domain Icon" width="15">
                                     </div>
-                                    <div class="card-heading-btn">
-                                        <button class="btn btn-type-1">Transfer Domain</button>
-                                        <button class="btn btn-type-2">Register a New Domain</button>
-                                        <button class="btn btn-type-1">...</button>
+                                    <h5>Domain</h5>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-number">103</div>
+                                    <div class="stat-text">
+                                        <p>118 Produk/Layanan</p>
+                                        <p>Tertunda</p>
                                     </div>
                                 </div>
-                                <div class="card-info">
-                                    <div class="search-box large">
-                                        <input type="text" class="search-input">
-                                        <button class="btn btn-register">Register</button>
-                                        <button class="btn btn-transfer">Transfer</button>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="stat-card">
+                                <div class="stat-card-top">
+                                    <div class="icon-box">
+                                        <img src="images/icon-service.svg" alt="Service Icon" width="15">
+                                    </div>
+                                    <h5>Service</h5>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-number">2</div>
+                                    <div class="stat-text">
+                                        <p>118 Produk/Layanan</p>
+                                        <p>Tertunda</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="stat-card">
+                                <div class="stat-card-top">
+                                    <div class="icon-box">
+                                        <img src="images/icon-service.svg" alt="Domain Icon" width="15">
+                                    </div>
+                                    <h5>Domain</h5>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-number">103</div>
+                                    <div class="stat-text">
+                                        <p>118 Produk/Layanan</p>
+                                        <p>Tertunda</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Services -->
-                    <div class="card services">
-                        <div class="card-heading">
-                            <div class="card-heading-text">
-                                <h5>Services</h5>
-                                <p>Your Active Products/Services</p>
-                            </div>
-                            <div class="card-heading-btn">
-                                <button class="btn btn-type-1">My Service</button>
-                                <button class="btn btn-type-2">Order New Services</button>
-                                <button class="btn btn-type-1">...</button>
-                            </div>
-                        </div>
-                        <div class="card-list">
-                            <!-- List 1 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">Ahared Hosting - Maximum plan</div>
-                                        <div class="list-subtext">demodomain.xxx</div>
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
+                <!-- Renew Services and Domains -->
+                <div class="row services-domains">
+                    <div class="col-md-5">
+                        <div class="card renew">
+                            <div class="card-heading">
+                                <div class="card-heading-text">
+                                    <h5>Renew Services</h5>
+                                    <p>Renew Services</p>
                                 </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Log in to cPanel</button>
-                                    <button class="btn btn-type-3">Log in to Webmail</button>
+                                <div class="card-heading-btn">
+                                    <button class="btn btn-type-1">Renew Now</button>
                                 </div>
                             </div>
-                            <!-- List 2 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">Shared Hosting - Basic plan</div>
-                                        <div class="list-subtext">coodiv.blog</div>
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Log in to cPanel</button>
-                                    <button class="btn btn-type-3">Log in to Webmail</button>
-                                </div>
+                            <div class="card-info">
+                                You have 1 service(s) that are available for renewal soon. Renew them today for peace of mind.
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <button class="btn btn-type-1">View More...</button>
                         </div>
                     </div>
-
-                    <!-- Tickets -->
-                    <div class="card tickets">
-                        <div class="card-heading">
-                            <div class="card-heading-text">
-                                <h5>Tickets</h5>
-                                <p>Recent Support Tickets</p>
+                    <div class="col-md-7">
+                        <div class="card domains">
+                            <div class="card-heading">
+                                <div class="card-heading-text">
+                                    <h5>Domains</h5>
+                                    <p>Register a New Domain</p>
+                                </div>
+                                <div class="card-heading-btn">
+                                    <button class="btn btn-type-1">Transfer Domain</button>
+                                    <button class="btn btn-type-2">Register a New Domain</button>
+                                    <button class="btn btn-type-1">...</button>
+                                </div>
                             </div>
-                            <div class="card-heading-btn search">
-                                <div class="search-box">
+                            <div class="card-info">
+                                <div class="search-box large">
                                     <input type="text" class="search-input">
-                                    <button class="btn btn-type-2 search-button">Search</button>
-                                </div>
-                                <button class="btn btn-type-1">Open New Ticket</button>
-                                <button class="btn btn-type-2">My Support Ticket</button>
-                                <button class="btn btn-type-1">...</button>
-                            </div>
-                        </div>
-                        <div class="card-list">
-                            <!-- List 1 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
+                                    <button class="btn btn-register">Register</button>
+                                    <button class="btn btn-transfer">Transfer</button>
                                 </div>
                             </div>
-                            <!-- List 2 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-green">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        OPEN
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 3 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-green">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        OPEN
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 4 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-green">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        OPEN
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 5 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-red">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CLOSED
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 6 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-green">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        OPEN
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 7 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 8 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 9 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 10 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 11 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 12 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 13 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 14 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                            <!-- List 15 -->
-                            <div class="custom-list">
-                                <div class="list-content">
-                                    <div class="text-wrapper">
-                                        <div class="list-text">#DXF-727901</div>
-                                        <div class="list-subtext">Last Updated : 09/06/2025</div>
-                                    </div>
-                                    <div class="list-country">
-                                        - Indonesia
-                                    </div>
-                                    <div class="list-status list-status-blue">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
-                                            <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
-                                        </svg>
-                                        CUSTOMER-REPLAY
-                                    </div>
-                                </div>
-                                <div class="list-actions">
-                                    <button class="btn btn-type-3">Deleted</button>
-                                    <button class="btn btn-type-3">Open</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <button class="btn btn-type-1">View More...</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Content -->
-                <div class="col-md-3">
-                    <div class="card blue-color welcome">
-                        <div class="card-heading">
-                            <div class="card-heading-text">
-                                <img src="images/icon-grid.svg" alt="icon grid">
-                                Welcome to Cloudpedia
-                            </div>
+                <!-- Services -->
+                <div class="card services">
+                    <div class="card-heading">
+                        <div class="card-heading-text">
+                            <h5>Services</h5>
+                            <p>Your Active Products/Services</p>
                         </div>
-                        <ul class="list-unstyled">
-                            <li>
-                                <img src="images/icon-rocket.svg" alt="">
-                                <div class="welcome-text">
-                                    <h4>Getting started with Cloudpedia</h4>
-                                    <p>Learn the fundamentals and find valuable information to get the most out of Cloudpedia.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="images/icon-training.svg" alt="">
-                                <div class="welcome-text">
-                                    <h4>Training and certification</h4>
-                                    <p>Learn from Cloudpedia experts and advance your skills and knowledge.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <img src="images/icon-lamp.svg" alt="">
-                                <div class="welcome-text">
-                                    <h4>What's new with Cloudpedia?</h4>
-                                    <p>Discover new Cloudpedia services, features, and Regions.</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="card-heading-btn">
+                            <button class="btn btn-type-1">My Service</button>
+                            <button class="btn btn-type-2">Order New Services</button>
+                            <button class="btn btn-type-1">...</button>
+                        </div>
                     </div>
-
-                    <div class="card blue-color ads">
-
-                    </div>
-
-                    <div class="card">
-                        <div class="card-heading">
-                            <div class="card-heading-text">
-                                <h5>Manage Your Security</h5>
-                                <p>Choose Domain:</p>
-                            </div>
-                        </div>
-                        <div class="form-inline select">
-                            <select class="form-control">
-                                <option>Codiv.blog</option>
-                            </select>
-                            <button class="btn btn-manage">Manage</button>
-                        </div>
-
-                        <hr>
-                        
-                        <div class="card-heading">
-                            <div class="card-heading-text">
-                                <h5>360 Monitoring</h5>
-                                <div class="monitor-row text-center">
-                                    <div class="monitor-item">
-                                        <h3>1</h3>
-                                        <p>Server</p>
-                                    </div>
-                                    <div class="monitor-item">
-                                        <h3>6</h3>
-                                        <p>Websites</p>
-                                    </div>
-                                    <div class="monitor-item">
-                                        <h3>1</h3>
-                                        <p>Alerts</p>
-                                    </div>
+                    <div class="card-list">
+                        <!-- List 1 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">Ahared Hosting - Maximum plan</div>
+                                    <div class="list-subtext">demodomain.xxx</div>
                                 </div>
-                                <p>Choose Domain:</p>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Log in to cPanel</button>
+                                <button class="btn btn-type-3">Log in to Webmail</button>
                             </div>
                         </div>
-                        <div class="form-inline select">
-                            <select class="form-control">
-                                <option>Codiv.blog</option>
-                            </select>
-                            <button class="btn btn-manage">Manage</button>
+                        <!-- List 2 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">Shared Hosting - Basic plan</div>
+                                    <div class="list-subtext">coodiv.blog</div>
+                                </div>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Log in to cPanel</button>
+                                <button class="btn btn-type-3">Log in to Webmail</button>
+                            </div>
                         </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-type-1">View More...</button>
                     </div>
                 </div>
+
+                <!-- Tickets -->
+                <div class="card tickets">
+                    <div class="card-heading">
+                        <div class="card-heading-text">
+                            <h5>Tickets</h5>
+                            <p>Recent Support Tickets</p>
+                        </div>
+                        <div class="card-heading-btn search">
+                            <div class="search-box">
+                                <input type="text" class="search-input">
+                                <button class="btn btn-type-2 search-button">Search</button>
+                            </div>
+                            <button class="btn btn-type-1">Open New Ticket</button>
+                            <button class="btn btn-type-2">My Support Ticket</button>
+                            <button class="btn btn-type-1">...</button>
+                        </div>
+                    </div>
+                    <div class="card-list">
+                        <!-- List 1 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 2 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-green">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    OPEN
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 3 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-green">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    OPEN
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 4 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-green">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    OPEN
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 5 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-red">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CLOSED
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 6 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-green">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    OPEN
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 7 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 8 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 9 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 10 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 11 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 12 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 13 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 14 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                        <!-- List 15 -->
+                        <div class="custom-list">
+                            <div class="list-content">
+                                <div class="text-wrapper">
+                                    <div class="list-text">#DXF-727901</div>
+                                    <div class="list-subtext">Last Updated : 09/06/2025</div>
+                                </div>
+                                <div class="list-country">
+                                    - Indonesia
+                                </div>
+                                <div class="list-status list-status-blue">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="5" height="6" viewBox="0 0 4 5" fill="none">
+                                        <circle cx="2" cy="2.5" r="2" fill="currentColor"/>
+                                    </svg>
+                                    CUSTOMER-REPLAY
+                                </div>
+                            </div>
+                            <div class="list-actions">
+                                <button class="btn btn-type-3">Deleted</button>
+                                <button class="btn btn-type-3">Open</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-type-1">View More...</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="col-span-3 bg-[#304166] shadow-md mb-[20px] p-[20px] rounded-[10px]">
+                <div class="card blue-color welcome">
+                    <div class="card-heading">
+                        <div class="card-heading-text">
+                            <img src="images/icon-grid.svg" alt="icon grid">
+                            Welcome to Cloudpedia
+                        </div>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li>
+                            <img src="images/icon-rocket.svg" alt="">
+                            <div class="welcome-text">
+                                <h4>Getting started with Cloudpedia</h4>
+                                <p>Learn the fundamentals and find valuable information to get the most out of Cloudpedia.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="images/icon-training.svg" alt="">
+                            <div class="welcome-text">
+                                <h4>Training and certification</h4>
+                                <p>Learn from Cloudpedia experts and advance your skills and knowledge.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="images/icon-lamp.svg" alt="">
+                            <div class="welcome-text">
+                                <h4>What's new with Cloudpedia?</h4>
+                                <p>Discover new Cloudpedia services, features, and Regions.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-heading">
+                        <div class="card-heading-text">
+                            <h5>Manage Your Security</h5>
+                            <p>Choose Domain:</p>
+                        </div>
+                    </div>
+                    <div class="form-inline select">
+                        <select class="form-control">
+                            <option>Codiv.blog</option>
+                        </select>
+                        <button class="btn btn-manage">Manage</button>
+                    </div>
+
+                    <hr>
+                    
+                    <div class="card-heading">
+                        <div class="card-heading-text">
+                            <h5>360 Monitoring</h5>
+                            <div class="monitor-row text-center">
+                                <div class="monitor-item">
+                                    <h3>1</h3>
+                                    <p>Server</p>
+                                </div>
+                                <div class="monitor-item">
+                                    <h3>6</h3>
+                                    <p>Websites</p>
+                                </div>
+                                <div class="monitor-item">
+                                    <h3>1</h3>
+                                    <p>Alerts</p>
+                                </div>
+                            </div>
+                            <p>Choose Domain:</p>
+                        </div>
+                    </div>
+                    <div class="form-inline select">
+                        <select class="form-control">
+                            <option>Codiv.blog</option>
+                        </select>
+                        <button class="btn btn-manage">Manage</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-[#fff] shadow-md">
+                dnjnddn
+
             </div>
         </div>
 

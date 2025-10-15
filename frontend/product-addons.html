@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Addons</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar collapsed" id="sidebar">
+        <!-- Tombol toggle -->
+        <button class="toggle-btn img-circle" onclick="toggleSidebar()">
+            <img src="images/sidebar-arrow-toggle.svg" alt="Sidebar Toggle">
+        </button>
+
+        <!-- Logo -->
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <img src="images/sidebar-logo.svg" alt="Sidebar Logo">
+            </div>
+            <div class="sidebar-avatar">
+                <img src="images/avatar.jpg" class="img-circle" width="48" height="48">
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <ul class="menu list-unstyled">
+            <li>
+                <a href="" class="menu-item">
+                    <div class="item-name">
+                        <img src="images/sidebar-icon-home.svg" class="icon-menu" alt="Home">
+                        <span class="text">Home</span>
+                    </div>
+                </a>
+            </li>
+            <li class="has-submenu">
+                <a href="#" class="menu-item">
+                    <div class="item-name">
+                        <img src="images/sidebar-icon-service.svg" class="icon-menu" alt="Service">
+                        <span class="text">Service</span>
+                    </div>
+                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                </a>
+
+                <!-- Submenu -->
+                <ul class="submenu list-unstyled">
+                    <li class="submenu-title">Service</li>
+                    <li>
+                        <a href="my-services">
+                            My Service
+                        </a>
+                    </li>
+                    <li>
+                        <a href="renew-services">
+                            Renew Services
+                        </a>
+                    </li>
+                    <li>
+                        <a href="order-new-service">
+                            Order New Service
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            View Availible Addons
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#" class="menu-item">
+                    <div class="item-name">
+                        <img src="images/sidebar-icon-domain.svg" class="icon-menu" alt="Domain">
+                        <span class="text">Domain</span>
+                    </div>
+                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                </a>
+
+                <!-- Submenu -->
+                <ul class="submenu list-unstyled">
+                    <li class="submenu-title">Domain</li>
+                    <li>
+                        <a href="my-domains">
+                            My Domain
+                        </a>
+                    </li>
+                    <li>
+                        <a href="renew-domains">
+                            Renew Domain
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Register a New Domain
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Transfer Domain to Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Domain Search
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#" class="menu-item">
+                    <div class="item-name">
+                        <img src="images/sidebar-icon-security.svg" class="icon-menu" alt="Security">
+                        <span class="text">Website & Security</span>
+                    </div>
+                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                </a>
+
+                <!-- Submenu -->
+                <ul class="submenu list-unstyled">
+                    <li class="submenu-title">Website & Security</li>
+                    <li>
+                        <a href="website-security">
+                            Website Security
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            XOVI NOW
+                        </a>
+                    </li>
+                    <li>
+                        <a href="vpn">
+                            VPN
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ssl-ceriticates">
+                            SSL Certificates
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Site & Server Monitoring
+                        </a>
+                    </li>
+                    <li>
+                        <a href="manage-ssl-certificates">
+                            Manage SSL Certificates
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#" class="menu-item">
+                    <div class="item-name">
+                        <img src="images/sidebar-icon-billing.svg" class="icon-menu" alt="Billing">
+                        <span class="text">Billing</span>
+                    </div>
+                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                </a>
+
+                <!-- Submenu -->
+                <ul class="submenu list-unstyled">
+                    <li class="submenu-title">Billing</li>
+                    <li>
+                        <a href="my-invoices">
+                            My Invoices
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Quotes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Mass Payment
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Payment Methods
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Add Funds
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#" class="menu-item">
+                    <div class="item-name">
+                        <img src="images/sidebar-icon-support.svg" class="icon-menu" alt="Support">
+                        <span class="text">Support</span>
+                    </div>
+                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                </a>
+
+                <!-- Submenu -->
+                <ul class="submenu list-unstyled">
+                    <li class="submenu-title">Support</li>
+                    <li>
+                        <a href="my-support-tickets">
+                            Tickets
+                        </a>
+                    </li>
+                    <li>
+                        <a href="announcement">
+                            Announcement
+                        </a>
+                    </li>
+                    <li>
+                        <a href="knowledgebase">
+                            Knowledgebase
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Downloads
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Network Status
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Messages -->
+        <div class="messages">
+            <p class="title">
+                MESSAGES
+                <button class="btn">
+                    +
+                </button>
+            </p>
+            <ul class="list-unstyled">
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-1.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Erik Gunsel</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-2.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status offline"></div>
+                    </div>
+                    <span class="text">Emily Smith</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Arthur Adelk</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Arthur Adelk</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Arthur Adelk</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Arthur Adelk</span>
+                </li>
+                <li class="message-user">
+                    <div class="avatar-wrapper">
+                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
+                        <div class="message-status online"></div>
+                    </div>
+                    <span class="text">Arthur Adelk</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Bottom -->
+        <ul class="menu list-unstyled">
+            <li>
+                <a href="#" class="menu-item">
+                    <div class="item-name">
+                        <img src="images/sidebar-icon-profile.svg" class="icon-menu" alt="Home">
+                        <span class="text">Profile</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="menu-item">
+                    <div class="item-name">
+                        <img src="images/sidebar-icon-logout.svg" class="icon-menu" alt="Home">
+                        <span class="text">Logout</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <section class="dashboard-page">
+        <!-- Navigation Tabs -->
+        <div class="custom-navbar center-navbar">
+            <ul class="navs main-nav list-unstyled">
+                <li>
+                    <a href="#">
+                        <img src="images/icon-shared-hosting.svg" alt="Icon Navbar" class="navbar-icon">
+                        Shared Hosting
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/icon-website-security.svg" alt="Icon Navbar" class="navbar-icon">
+                        Website Security
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/icon-vpn.svg" alt="Icon Navbar" class="navbar-icon">
+                        VPN
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/icon-ssl-certificates.svg" alt="Icon Navbar" class="navbar-icon">
+                        SSL Certificates
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/icon-site-server-monitoring.svg" alt="Icon Navbar" class="navbar-icon">
+                        Site & Server Monitoring
+                    </a>
+                </li>
+                <li>
+                    <a href="product-addons">
+                        <img src="images/icon-product-addons.svg" alt="Icon Navbar" class="navbar-icon">
+                        Product Addons
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Page Header -->
+        <div class="page-header-section">
+            <div class="left-header">
+                <h2>Product Addons</h2>
+                <p>Product Addons</p>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="container-fluid product-addons">
+            <div class="card-container">
+                <div class="card">
+                    <h3>SSL Certificates - RapidSSL</h3>
+                    <h5>Wildcard</h5>
+                    <div class="price-group">
+                        <p><span>$17.95</span> USD</p>
+                        <button class="btn">
+                            <img src="images/icon-checklist.svg" alt="Icon Checklist"> +
+                        </button>
+                    </div>
+                    <p class="desc">
+                        RapidSSL® Certificates help you keep your customers' transactions secure with up to 256-bit data encryption and site authentication. Buy a certificate and speed through enrollment with automated domain control validation. Best of all, our SSL certificates are among the most affordable in the industry. We keep our costs down and pass the savings on to you.
+                    </p>
+                    <div class="select-group">
+                        <form action="">
+                            <label for="website">Website :</label>
+                            <div class="custom-select-wrapper">
+                                <select name="" id="website" class="custom-select">
+                                    <option>Codiv.blog</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>SSL Certificates - RapidSSL</h3>
+                    <h5>Wildcard</h5>
+                    <div class="price-group">
+                        <p><span>$17.95</span> USD</p>
+                        <button class="btn">
+                            <img src="images/icon-checklist.svg" alt="Icon Checklist"> +
+                        </button>
+                    </div>
+                    <p class="desc">
+                        RapidSSL® Certificates help you keep your customers' transactions secure with up to 256-bit data encryption and site authentication. Buy a certificate and speed through enrollment with automated domain control validation. Best of all, our SSL certificates are among the most affordable in the industry. We keep our costs down and pass the savings on to you.
+                    </p>
+                    <div class="select-group">
+                        <form action="">
+                            <label for="website">Website :</label>
+                            <div class="custom-select-wrapper">
+                                <select name="" id="website" class="custom-select">
+                                    <option>Codiv.blog</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>SSL Certificates - RapidSSL</h3>
+                    <h5>Wildcard</h5>
+                    <div class="price-group">
+                        <p><span>$149.00</span> USD</p>
+                        <button class="btn">
+                            <img src="images/icon-checklist.svg" alt="Icon Checklist"> +
+                        </button>
+                    </div>
+                    <p class="desc">
+                        RapidSSL® Wildcard Certificates help you secure multiple subdomains with one low-cost SSL certificate issued to *.yourdomain.com. Protect your customers' personal data with up to 256-bit encryption. Automated domain control validation makes site authentication a breeze. At RapidSSL, we believe in providing the SSL protection you need at a competitive price.
+                    </p>
+                    <div class="select-group">
+                        <form action="">
+                            <label for="website">Website :</label>
+                            <div class="custom-select-wrapper">
+                                <select name="" id="website" class="custom-select">
+                                    <option>Codiv.blog</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>SSL Certificates - GeoTrust</h3>
+                    <h5>QuickSSL Premium</h5>
+                    <div class="price-group">
+                        <p><span>$79.00</span> USD</p>
+                        <button class="btn">
+                            <img src="images/icon-checklist.svg" alt="Icon Checklist"> +
+                        </button>
+                    </div>
+                    <p class="desc">
+                        Secure your website fast. GeoTrust® QuickSSL® Premium certificates are one of the quickest ways for you to start protecting online transactions and applications with SSL. With an automatic authentication and issuance process, it takes just minutes to get your QuickSSL Premium SSL certificate. After that, managing and renewing your certificates is a snap. With GeoTrust, you get inexpensive SSL without sacrificing convenience, choice, or reliability.
+                    </p>
+                    <div class="select-group">
+                        <form action="">
+                            <label for="website">Website :</label>
+                            <div class="custom-select-wrapper">
+                                <select name="" id="website" class="custom-select">
+                                    <option>Codiv.blog</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>SSL Certificates - GeoTrust</h3>
+                    <h5>QuickSSL Premium Wildcard</h5>
+                    <div class="price-group">
+                        <p><span>$279.00</span> USD</p>
+                        <button class="btn">
+                            <img src="images/icon-checklist.svg" alt="Icon Checklist"> +
+                        </button>
+                    </div>
+                    <p class="desc">
+                        Secure your domain and all same level subdomains fast. GeoTrust QuickSSL Premium Wildcard certificates are one of the quickest ways to start protecting all your subdomains on a single certificate. Our automated email authentication process means you get your certificate in minutes. With QuickSSL Premium wildcard certificates, you get unlimited subdomains and on an unlimited number of servers - one certificate that will adapt as your business grows.
+                    </p>
+                    <div class="select-group">
+                        <form action="">
+                            <label for="website">Website :</label>
+                            <div class="custom-select-wrapper">
+                                <select name="" id="website" class="custom-select">
+                                    <option>Codiv.blog</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>SSL Certificates - GeoTrust True</h3>
+                    <h5>BusinessID</h5>
+                    <div class="price-group">
+                        <p><span>$169.00</span> USD</p>
+                        <button class="btn">
+                            <img src="images/icon-checklist.svg" alt="Icon Checklist"> +
+                        </button>
+                    </div>
+                    <p class="desc">
+                        Business-class SSL—only better. When it comes to selecting SSL security for your business, you have a lot of choices. With GeoTrust, the decision is easy. GeoTrust® True BusinessID SSL certificates let your customers know that your site is trustworthy and that you take their security seriously enough to get your certificate from a globally trusted certificate authority.
+                    </p>
+                    <div class="select-group">
+                        <form action="">
+                            <label for="website">Website :</label>
+                            <div class="custom-select-wrapper">
+                                <select name="" id="website" class="custom-select">
+                                    <option>Codiv.blog</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>SSL Certificates - GeoTrust True</h3>
+                    <h5>BusinessID with EV</h5>
+                    <div class="price-group">
+                        <p><span>$289.00</span> USD</p>
+                        <button class="btn">
+                            <img src="images/icon-checklist.svg" alt="Icon Checklist"> +
+                        </button>
+                    </div>
+                    <p class="desc">
+                        Make a strong security statement with the green address bar. GeoTrust® True BusinessID with EV (Extended Validation) is our premium business-class SSL security product, visually confirming the highest level of authentication available among SSL certificates. The green bar says it all. Web site visitors really notice when the address bar turns green in their high-security browsers and the organization field starts to rotate between your business name and GeoTrust.
+                    </p>
+                    <div class="select-group">
+                        <form action="">
+                            <label for="website">Website :</label>
+                            <div class="custom-select-wrapper">
+                                <select name="" id="website" class="custom-select">
+                                    <option>Codiv.blog</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>SSL Certificates - DigiCert Secure</h3>
+                    <h5>Site EV</h5>
+                    <div class="price-group">
+                        <p><span>$1,118.00 </span> USD</p>
+                        <button class="btn">
+                            <img src="images/icon-checklist.svg" alt="Icon Checklist"> +
+                        </button>
+                    </div>
+                    <p class="desc">
+                        Secure Site Pro EV SSL is the highest authentication with extra features for comprehensive website security and robust protection against identity-targeted attacks.
+                    </p>
+                    <div class="select-group">
+                        <form action="">
+                            <label for="website">Website :</label>
+                            <div class="custom-select-wrapper">
+                                <select name="" id="website" class="custom-select">
+                                    <option>Codiv.blog</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>SSL Certificates</h3>
+                    <h5>QuickSSL Premium</h5>
+                    <div class="price-group">
+                        <p><span>FREE!</span></p>
+                        <button class="btn">
+                            <img src="images/icon-checklist.svg" alt="Icon Checklist"> +
+                        </button>
+                    </div>
+                    <p class="desc">
+                        Secure Site Pro EV SSL is the highest authentication with extra features for comprehensive website security and robust protection against identity-targeted attacks.
+                    </p>
+                    <div class="select-group">
+                        <form action="">
+                            <label for="website">Website :</label>
+                            <div class="custom-select-wrapper">
+                                <select name="" id="website" class="custom-select">
+                                    <option>Codiv.blog</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="images/server.png" class="server-content-img" alt="Server Illustration" />
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="images/logo.svg" alt="Cloudpedia Logo" class="logo">
+            </div>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p class="desc">
+                        Access the full potential of WHMCS with Shufy themes, featuring a new user-friendly client area, simplified ordering process, and much more!
+                    </p>
+
+                    <!-- Email -->
+                    <a href="mailto:noreply@Cloudpedia.id" class="contact-list">
+                        <img src="images/icon-mail.svg" alt="Icon Mail">
+                        <span>noreply@Cloudpedia.id</span>
+                    </a>
+
+                    <!-- Phone -->
+                    <a href="#" class="contact-list">
+                        <img src="images/icon-phone.svg" alt="Icon Phone">
+                        <span>+62 853-3656-9836</span>
+                    </a>
+
+                    <!-- Alamat Pusat -->
+                    <span class="contact-title">Alamat Pusat</span>
+                    <p class="contact-list">
+                        <img src="images/icon-address-white.svg" alt="Icon Address">
+                        <span class="address">
+                            Soho Vittorio Citraland, Unit 708 Lt.7 Jl. Raya Menganti Karangan No. 32, RT.000 RW.000, Babatan, Wiyung, Kota Surabaya, Jawa Timur
+                        </span>
+                    </p>
+
+                    <!-- Alamat Cabang -->
+                    <span class="contact-title">Alamat Cabang</span>
+                    <p class="contact-list">
+                        <img src="images/icon-address-black.svg" alt="Icon Address">
+                        <span class="address">
+                            Ruko Este Square, Blok A12 No.56-58 Jl. Dr. Ir. H. Soekarno, Mulyorejo, Kec. Mulyorejo, Surabaya, Jawa Timur 60115
+                        </span>
+                    </p>
+                </div>
+    
+                <div class="footer-right">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Web Hosting</a></li>
+                            <li><a href="#">Reseller Hosting</a></li>
+                            <li><a href="#">VPS Hosting</a></li>
+                            <li><a href="#">Dedicated Servers</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Minecraft Hosting</a></li>
+                            <li><a href="#">Website Builder</a></li>
+                            <li><a href="#">cPanel Reseller</a></li>
+                            <li><a href="#">Wordpress Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Domains</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Domain Checker</a></li>
+                            <li><a href="#">Free Domain</a></li>
+                            <li><a href="#">WHOIS Checker</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Services</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">SSL Certificates</a></li>
+                            <li><a href="#">E-Mail Services</a></li>
+                            <li><a href="#">Site Builder</a></li>
+                            <li><a href="#">Website Builder</a></li>
+                            <li><a href="#">Professional Email</a></li>
+                            <li><a href="#">Website Security</a></li>
+                            <li><a href="#">Website Backup</a></li>
+                            <li><a href="#">Seo Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Legal</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Browser Cookies</a></li>
+                            <li><a href="#">Licesses</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2025 Cloudpedia. All Rights Reserved. Powered by TAN</p>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- My JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

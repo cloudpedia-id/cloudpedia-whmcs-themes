@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-[Inter] m-0 p-0;
+        font-family: 'Inter', sans-serif;
+    }
+}
+
+@layer utilities {
+    /* Login Page */
+    .announcement-box::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        padding: 1px;
+        background: radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.61) 0%,
+            rgba(255,255,255,0.0) 39%,
+            rgba(255,255,255,0.07) 77%,
+            rgba(255,255,255,0.56) 100%
+        );
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
+
+    /* Navbar */
+    .nav-active{
+        color: #fff;
+        background: linear-gradient(90deg, #F3A4FF 0%, #CCC3FF 100%);
+    }
+
+    .nav-item:hover{
+        background: linear-gradient(90deg, #F3A4FF 0%, #CCC3FF 100%);
+        box-shadow: 0 0 10px rgba(243, 164, 255, 0.6);
+        color: #fff;
+    }
+
+    .nav-extra:hover {
+        background: linear-gradient(90deg, #730384 0%, #F211C8 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Dashboard Page */
+    .dashboard-account-active{
+        background: radial-gradient(3395.84% 127.75% at 0% 23.08%, rgba(28, 111, 255, 0.75) 0%, rgba(15, 68, 160, 0.75) 100%);
+    }
+
+    .dashboard-account-expired{
+        background: #304166;
+    }
+}

@@ -5,69 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Client Login</title>
 
-    <!-- Bootstrap 3 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
 </head>
 <body>
-    <section class="login-page">
-        <div class="container-fluid">
-            <div class="row">
-                <!-- Left Section -->
-                <div class="col-md-5 announcements">
-                    <img src="images/eclipse.png" alt="eclipse" class="eclipse-img">
-                    <img src="images/logo.svg" class="logo" alt="logo" />
-                    <div class="announcement-box">
-                        <h3>Latest Announcements</h3>
-                        <h4>Exciting Update : <span>Free SSL on All Hosting plans!</span></h4>
-                        <p class="date">20 March</p>
-                        <p class="desc">
-                            Security matters! That's why we're now offering FREE SSL certificates 
-                            on all our hosting plans. Keep your website secure, improve SEO rankings, 
-                            and build trust with your visitors at no extra cost.
-                        </p>
-                    </div>
-                    <img src="images/server.png" class="server-img" alt="Server Illustration" />
+    <section class="flex h-screen">
+        <!-- Left Section -->
+        <div class="relative w-5/12 bg-[#08005E] flex flex-col items-start p-10 text-white">
+            <img src="images/eclipse.png" alt="eclipse" class="absolute top-0 right-0 opacity-80">
+
+            <img src="images/logo.svg" class="w-32 relative z-10" alt="logo" />
+
+            <div class="announcement-box relative my-auto bg-white/5 backdrop-blur-xl rounded-2xl p-5 z-10">
+                <h3 class="text-2xl font-bold">Latest Announcements</h3>
+                <h4 class="text-lg font-semibold text-[#ffc107]">
+                    Exciting Update : <span>Free SSL on All Hosting plans!</span>
+                </h4>
+                <p class="text-xs font-normal my-2">20 March</p>
+                <p class="text-sm font-normal transition-all duration-500">Security matters! That's why we're now offering FREE SSL certificates on all our hosting plans. Keep your website secure, improve SEO rankings, and build trust with your visitors at no extra cost.</p>
+                
+                <!-- Dots -->
+                <div class="flex space-x-2 my-5">
+                    <button class="w-4 h-2 rounded-full bg-[#F7B548]"></button>
+                    <button class="w-2 h-2 rounded-full bg-white"></button>
+                    <button class="w-2 h-2 rounded-full bg-white"></button>
                 </div>
 
-                <!-- Right Section -->
-                <div class="col-md-7 login-form">
-                    <div class="form-box">
-                        <h3 class="text-center">Client Login</h3>
-                        <p class="text-center">Sign in to your account to continue.</p>
-                        <form>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" placeholder="name@example.com" />
-                            </div>
-                            <div class="form-group">
-                                <div class="clearfix">
-                                    <label class="pull-left">Password</label>
-                                    <a href="#" class="pull-right">Forget Password?</a>
-                                </div>
-                                <input type="password" class="form-control" placeholder="Password" />
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" style="margin-top: -1px;"> Remember Me
-                                </label>
-                            </div>
-                        </form>
-                        <p class="policy text-center">By continuing, you agree to Cloudpedia Terms of Use and Privacy Policy.</p>
-                        <p class="register text-center">
-                            Don’t have an account? <a href="#">Create Account</a>
-                        </p>
+            </div>
+            <img src="images/server.png" class="absolute bottom-0 left-0 w-[270px] z-0" alt="Server Illustration" />
+        </div>
+
+        <!-- Right Section -->
+        <div class="w-7/12 flex items-center justify-center bg-white">
+            <div class="bg-[#08005E] text-white rounded-2xl p-10 w-[346px] flex flex-col justify-between">
+                <h3 class="text-2xl font-bold text-[#ffc107] text-center mb-2">Client Login</h3>
+                <p class="text-center text-sm font-medium mb-5">Sign in to your account to continue.</p>
+
+                <form class="space-y-4 mb-12">
+                    <div class="flex flex-col">
+                        <label class="text-sm font-medium mb-1">Email</label>
+                        <input type="email" placeholder="name@example.com" class="h-10 px-3 rounded-md bg-[#1D1484] border border-white text-white text-sm font-medium placeholder:text-[#8E7DF8] focus:outline-none focus:border-[#8E7DF8] focus:shadow-[0_0_10px_rgba(142,125,248,0.6)] hover:shadow-[0_0_8px_rgba(142,125,248,0.8)] transition-all duration-300" />
                     </div>
+                    <div class="flex flex-col">
+                        <div class="flex justify-between mb-1">
+                            <label class="text-sm font-medium">Password</label>
+                            <a href="#" class="text-sm font-medium text-[#8E7DF8] hover:text-[#C0BFF6] transition-colors duration-200 focus:outline-none" tabindex="-1">Forget Password?</a>
+                        </div>
+                        <input type="password" placeholder="Password" class="h-10 px-3 rounded-md bg-[#1D1484] border border-white text-white text-sm font-medium placeholder:text-[#8E7DF8] focus:outline-none focus:border-[#8E7DF8] focus:shadow-[0_0_10px_rgba(142,125,248,0.6)] hover:shadow-[0_0_8px_rgba(142,125,248,0.8)] transition-all duration-300" />
+                    </div>
+                    <div class="flex items-center">
+                        <input type="checkbox" id="remember" class="mr-2 accent-[#8E7DF8]">
+                        <label for="remember" class="text-sm font-medium text-[#8E7DF8] hover:text-[#C0BFF6] transition-colors duration-200 cursor-pointer">Remember Me</label>
+                    </div>
+                </form>
+
+                <div class="text-center space-y-3">
+                    <p class="text-sm font-normal text-white">By continuing, you agree to Cloudpedia Terms of Use and Privacy Policy.</p>
+                    <p class="text-sm font-normal">
+                        Don’t have an account? <a href="#" class="font-semibold text-[#C0BFF6] underline hover:text-[#8E7DF8] transition-colors duration-200">Create Account</a>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
