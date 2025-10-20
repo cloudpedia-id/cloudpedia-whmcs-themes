@@ -1,4 +1,59 @@
 <div class="providerLinkingFeedback"></div>
+{debug}
+
+<section class="login-page">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left Section -->
+            <div class="col-md-5 announcements">
+                <img src="/templates/{$template}/images/eclipse.png" alt="eclipse" class="eclipse-img">
+                <img src="images/logo.svg" class="logo" alt="logo" />
+                <div class="announcement-box">
+                    <h3>Latest Announcements</h3>
+                    <h4>Exciting Update : <span>Free SSL on All Hosting plans!</span></h4>
+                    <p class="date">20 March</p>
+                    <p class="desc">
+                        Security matters! That's why we're now offering FREE SSL certificates
+                        on all our hosting plans. Keep your website secure, improve SEO rankings,
+                        and build trust with your visitors at no extra cost.
+                    </p>
+                </div>
+                <img src="images/server.png" class="server-img" alt="Server Illustration" />
+            </div>
+
+            <!-- Right Section -->
+            <div class="col-md-7 login-form">
+                <div class="form-box">
+                    <h3 class="text-center">Client Login</h3>
+                    <p class="text-center">Sign in to your account to continue.</p>
+                    <form>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" class="form-control" placeholder="name@example.com" />
+                        </div>
+                        <div class="form-group">
+                            <div class="clearfix">
+                                <label class="pull-left">Password</label>
+                                <a href="#" class="pull-right">Forget Password?</a>
+                            </div>
+                            <input type="password" class="form-control" placeholder="Password" />
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" style="margin-top: -2px;"> Remember Me
+                            </label>
+                        </div>
+                    </form>
+                    <p class="policy text-center">By continuing, you agree to Cloudpedia Terms of Use and Privacy
+                        Policy.</p>
+                    <p class="register text-center">
+                        Don’t have an account? <a href="#">Create Account</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <form method="post" action="{routePath('login-validate')}" class="login-form" role="form">
     <div class="card mw-540 mb-md-4 mt-md-4">

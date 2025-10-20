@@ -1,0 +1,8 @@
+{
+  "name": "scripts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "deploy": "tsx deploy.ts"
+  }
+}
