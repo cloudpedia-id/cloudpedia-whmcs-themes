@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-[Inter] m-0 p-0;
+    }
+}
+
+@layer components {
+    /* Navbar */
+    .nav-extra:hover {
+        background: linear-gradient(90deg, #730384 0%, #F211C8 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Status */
+    .status-customer-replay {
+        @apply bg-[rgba(17,107,241,0.2)] text-[#3299EE] text-center rounded;
+    }
+    .status-open {
+        @apply bg-[rgba(17,199,103,0.2)] text-[#28BA6D] text-center rounded;
+    }
+    .status-closed {
+        @apply bg-[rgba(241,77,17,0.2)] text-[#EE4932] text-center rounded;
+    }
+
+    .status-active {
+        @apply bg-[rgba(17,199,103,0.2)] text-[#28BA6D] text-center rounded;
+    }
+    .status-pending {
+        @apply bg-[rgba(17,107,241,0.2)] text-[#3299EE] text-center rounded;
+    }
+    .status-suspended {
+        @apply bg-[rgba(241,77,17,0.2)] text-[#f14d11] text-center rounded;
+    }
+    .status-terminated {
+        @apply bg-[rgba(126,17,199,0.2)] text-[#B828BA] text-center rounded;
+    }
+    .status-cancelled {
+        @apply bg-[rgba(199,17,17,0.2)] text-[#4D0101] text-center rounded;
+    }
+
+    .status-paid {
+        @apply bg-[rgba(17,199,103,0.2)] text-[#28BA6D] text-center rounded;
+    }
+    .status-unpaid {
+        @apply bg-[rgba(241,77,17,0.2)] text-[#F14D11] text-center rounded;
+    }
+    .status-cancel {
+        @apply bg-[rgba(230,17,241,0.2)] text-[#2F1C6A] text-center rounded;
+    }
+    .status-refund {
+        @apply bg-[rgba(17,107,241,0.2)] text-[#3299EE] text-center rounded;
+    }
+}
+
+@layer utilities {
+    /* Login Page */
+    .announcement-box::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        padding: 1px;
+        background: radial-gradient(
+            circle at center,
+            rgba(255,255,255,0.61) 0%,
+            rgba(255,255,255,0.0) 39%,
+            rgba(255,255,255,0.07) 77%,
+            rgba(255,255,255,0.56) 100%
+        );
+        -webkit-mask:
+            linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
+
+    /* Dashboard Page */
+    .dashboard-account-active{
+        background: radial-gradient(3395.84% 127.75% at 0% 23.08%, rgba(28, 111, 255, 0.75) 0%, rgba(15, 68, 160, 0.75) 100%);
+    }
+
+    .dashboard-account-expired{
+        background: #304166;
+    }
+
+    /* Scrollbar */
+    .scrollbar-custom{
+        scrollbar-width: thin;
+        scrollbar-color: #6A72DE transparent;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar{
+        width: 2px;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-thumb{
+        background-color: #6A72DE;
+        border-radius: 2px;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-track{
+        background: transparent;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar{
+        display: none;
+    }
+    .scrollbar-hide{
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
