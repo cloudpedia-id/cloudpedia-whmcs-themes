@@ -5,233 +5,255 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Invoices</title>
 
-    <!-- Bootstrap 3 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
-
-    <!-- Datatables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.css" />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
 </head>
 <body>
     <!-- Sidebar -->
-    <div class="sidebar collapsed" id="sidebar">
-        <!-- Tombol toggle -->
-        <button class="toggle-btn img-circle" onclick="toggleSidebar()">
+    <div id="sidebar" class="sidebar group/sidebar fixed top-0 left-0 h-screen w-20 [&.expanded]:w-60 py-5 bg-sidebar shadow-sidebar-glow backdrop-blur-lg rounded-r-xl transition-all duration-500 ease-in-out z-50">
+        <!-- Toggle Button -->
+        <button onclick="toggleSidebar()" class="toggle-btn absolute top-9 -right-3 w-6 h-6 rounded-full flex items-center justify-center border border-white cursor-pointer transition-all duration-500 bg-primary-gradient rotate-0 group-[.expanded]/sidebar:rotate-180">
             <img src="images/sidebar-arrow-toggle.svg" alt="Sidebar Toggle">
         </button>
 
-        <!-- Logo -->
-        <div class="sidebar-header">
-            <div class="sidebar-logo">
-                <img src="images/sidebar-logo.svg" alt="Sidebar Logo">
-            </div>
-            <div class="sidebar-avatar">
-                <img src="images/avatar.jpg" class="img-circle" width="48" height="48">
-            </div>
+        <!-- Header -->
+        <div class="flex flex-col items-center justify-center gap-4 w-20 mb-2.5 px-2.5">
+            <img src="images/sidebar-logo.svg" alt="Sidebar Logo" class="h-5">
+            <img src="images/avatar.jpg" class="w-12 h-12 rounded-full">
         </div>
 
         <!-- Menu -->
-        <ul class="menu list-unstyled">
+        <ul class="list-none mx-4 space-y-1 text-xs font-bold text-white">
             <li>
-                <a href="" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-home.svg" class="icon-menu" alt="Home">
-                        <span class="text">Home</span>
+                <a href="" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-home.svg" alt="Home">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Home
+                        </span>
                     </div>
                 </a>
             </li>
-            <li class="has-submenu">
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-service.svg" class="icon-menu" alt="Service">
-                        <span class="text">Service</span>
+            <li class="has-submenu group/menu">
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu group-[.open]/menu:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-service.svg" alt="Service">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Service
+                        </span>
                     </div>
-                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                    <img src="images/sidebar-arrow-more.svg" alt="More Icon" class="hidden transition-transform duration-200 group-[.expanded]/sidebar:inline-block group-[.open]/menu:-rotate-90">
                 </a>
 
                 <!-- Submenu -->
-                <ul class="submenu list-unstyled">
-                    <li class="submenu-title">Service</li>
+                <ul class="list-none opacity-0 invisible absolute w-48 ml-[100%] -mt-10 space-y-2.5 py-3 px-2.5 bg-[#B497FF] shadow-sidebar-glow backdrop-blur-2xl rounded-xl translate-x-[-15px] transition-all duration-300 ease-in-out group-[.open]/menu:opacity-100 group-[.open]/menu:visible group-[.open]/menu:translate-x-0 z-50">
                     <li>
-                        <a href="my-services">
+                        <h4 class="font-extrabold py-1">
+                            Service
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="my-services" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             My Service
                         </a>
                     </li>
                     <li>
-                        <a href="renew-services">
+                        <a href="renew-services" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Renew Services
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Order New Service
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             View Availible Addons
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="has-submenu">
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-domain.svg" class="icon-menu" alt="Domain">
-                        <span class="text">Domain</span>
+            <li class="has-submenu group/menu">
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu group-[.open]/menu:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-domain.svg" alt="Domain">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Domain
+                        </span>
                     </div>
-                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                    <img src="images/sidebar-arrow-more.svg" alt="More Icon" class="hidden transition-transform duration-200 group-[.expanded]/sidebar:inline-block group-[.open]/menu:-rotate-90">
                 </a>
 
                 <!-- Submenu -->
-                <ul class="submenu list-unstyled">
-                    <li class="submenu-title">Domain</li>
+                <ul class="list-none opacity-0 invisible absolute w-48 ml-[100%] -mt-10 space-y-2.5 py-3 px-2.5 bg-[#B497FF] shadow-sidebar-glow backdrop-blur-2xl rounded-xl translate-x-[-15px] transition-all duration-300 ease-in-out group-[.open]/menu:opacity-100 group-[.open]/menu:visible group-[.open]/menu:translate-x-0 z-50">
                     <li>
-                        <a href="my-domains">
+                        <h4 class="font-extrabold py-1">
+                            Domain
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="my-domains" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             My Domain
                         </a>
                     </li>
                     <li>
-                        <a href="renew-domains">
+                        <a href="renew-domains" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Renew Domain
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Register a New Domain
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Transfer Domain to Us
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Domain Search
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="has-submenu">
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-security.svg" class="icon-menu" alt="Security">
-                        <span class="text">Website & Security</span>
+            <li class="has-submenu group/menu">
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu group-[.open]/menu:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-security.svg" class alt="Security">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Website & Security
+                        </span>
                     </div>
-                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                    <img src="images/sidebar-arrow-more.svg" alt="More Icon" class="hidden transition-transform duration-200 group-[.expanded]/sidebar:inline-block group-[.open]/menu:-rotate-90">
                 </a>
 
                 <!-- Submenu -->
-                <ul class="submenu list-unstyled">
-                    <li class="submenu-title">Website & Security</li>
+                <ul class="list-none opacity-0 invisible absolute w-48 ml-[100%] -mt-10 space-y-2.5 py-3 px-2.5 bg-[#B497FF] shadow-sidebar-glow backdrop-blur-2xl rounded-xl translate-x-[-15px] transition-all duration-300 ease-in-out group-[.open]/menu:opacity-100 group-[.open]/menu:visible group-[.open]/menu:translate-x-0 z-50">
                     <li>
-                        <a href="website-security">
+                        <h4 class="font-extrabold py-1">
+                            Website & Security
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="website-security" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Website Security
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             XOVI NOW
                         </a>
                     </li>
                     <li>
-                        <a href="vpn">
+                        <a href="vpn" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             VPN
                         </a>
                     </li>
                     <li>
-                        <a href="ssl-ceriticates">
+                        <a href="ssl-ceriticates" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             SSL Certificates
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Site & Server Monitoring
                         </a>
                     </li>
                     <li>
-                        <a href="manage-ssl-certificates">
+                        <a href="manage-ssl-certificates" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Manage SSL Certificates
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="has-submenu">
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-billing.svg" class="icon-menu" alt="Billing">
-                        <span class="text">Billing</span>
+            <li class="has-submenu group/menu">
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu group-[.open]/menu:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-billing.svg" alt="Billing">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Billing
+                        </span>
                     </div>
-                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                    <img src="images/sidebar-arrow-more.svg" alt="More Icon" class="hidden transition-transform duration-200 group-[.expanded]/sidebar:inline-block group-[.open]/menu:-rotate-90">
                 </a>
 
                 <!-- Submenu -->
-                <ul class="submenu list-unstyled">
-                    <li class="submenu-title">Billing</li>
+                <ul class="list-none opacity-0 invisible absolute w-48 ml-[100%] -mt-10 space-y-2.5 py-3 px-2.5 bg-[#B497FF] shadow-sidebar-glow backdrop-blur-2xl rounded-xl translate-x-[-15px] transition-all duration-300 ease-in-out group-[.open]/menu:opacity-100 group-[.open]/menu:visible group-[.open]/menu:translate-x-0 z-50">
                     <li>
-                        <a href="my-invoices">
+                        <h4 class="font-extrabold py-1">
+                            Billing
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="my-invoices" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             My Invoices
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Quotes
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Mass Payment
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Payment Methods
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Add Funds
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="has-submenu">
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-support.svg" class="icon-menu" alt="Support">
-                        <span class="text">Support</span>
+            <li class="has-submenu group/menu">
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu group-[.open]/menu:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-support.svg" alt="Support">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Support
+                        </span>
                     </div>
-                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                    <img src="images/sidebar-arrow-more.svg" alt="More Icon" class="hidden transition-transform duration-200 group-[.expanded]/sidebar:inline-block group-[.open]/menu:-rotate-90">
                 </a>
 
                 <!-- Submenu -->
-                <ul class="submenu list-unstyled">
-                    <li class="submenu-title">Support</li>
+                <ul class="list-none opacity-0 invisible absolute w-48 ml-[100%] -mt-10 space-y-2.5 py-3 px-2.5 bg-[#B497FF] shadow-sidebar-glow backdrop-blur-2xl rounded-xl translate-x-[-15px] transition-all duration-300 ease-in-out group-[.open]/menu:opacity-100 group-[.open]/menu:visible group-[.open]/menu:translate-x-0 z-50">
                     <li>
-                        <a href="my-support-tickets">
+                        <h4 class="font-extrabold py-1">
+                            Support
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="my-support-tickets" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Tickets
                         </a>
                     </li>
                     <li>
-                        <a href="announcement">
+                        <a href="announcement" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Announcement
                         </a>
                     </li>
                     <li>
-                        <a href="knowledgebase">
+                        <a href="knowledgebase" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Knowledgebase
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Downloads
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Network Status
                         </a>
                     </li>
@@ -240,866 +262,804 @@
         </ul>
 
         <!-- Messages -->
-        <div class="messages">
-            <p class="title">
+        <div class="text-xs font-medium text-white/40 uppercase m-1 rounded-lg transition-all duration-500 group-[.expanded]/sidebar:bg-indigo-300/20">
+            <h4 class="flex items-center justify-between h-10 px-2 text-[10px]">
                 MESSAGES
-                <button class="btn">
-                    +
+                <button class="hidden hover:text-white group-[.expanded]/sidebar:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+                    </svg>
                 </button>
-            </p>
-            <ul class="list-unstyled">
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-1.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Erik Gunsel</span>
+            </h4>
+            <ul class="list-none h-36 mx-4 overflow-x-hidden overflow-y-auto scrollbar-hide transition-all duration-300 group-[.expanded]/sidebar:mx-0 group-[.expanded]/sidebar:scrollbar-custom">
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-1.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Erik Gunsel</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-2.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status offline"></div>
-                    </div>
-                    <span class="text">Emily Smith</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-2.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-orange-300"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Emily Smith</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Arthur Adelk</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-3.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Arthur Adelk</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Arthur Adelk</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-3.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Elven Constancio</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Arthur Adelk</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-3.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Aisyah</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Arthur Adelk</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-3.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Ratu Intan Amelia Wanda Sari</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Arthur Adelk</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-3.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-orange-300"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Fatimah Intan</span>
+                    </a>
                 </li>
             </ul>
         </div>
 
-        <!-- Bottom -->
-        <ul class="menu list-unstyled">
+        <!-- Bottom Menu -->
+        <ul class="list-none mx-4 space-y-1 text-xs font-bold text-white">
             <li>
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-profile.svg" class="icon-menu" alt="Home">
-                        <span class="text">Profile</span>
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-black/20">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-profile.svg" alt="Profile">
+                        <span class="hidden whitespace-nowrap transition-all group-[.expanded]/sidebar:inline">
+                            Profile
+                        </span>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-logout.svg" class="icon-menu" alt="Home">
-                        <span class="text">Logout</span>
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-black/20">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-logout.svg" alt="Logout">
+                        <span class="hidden whitespace-nowrap transition-all group-[.expanded]/sidebar:inline">
+                            Logout
+                        </span>
                     </div>
                 </a>
             </li>
         </ul>
     </div>
 
-    <section class="dashboard-page">
-        <!-- Top Bar News -->
-        <div class="news-alert">
-            <div class="news">News:</div> Limited-Time Offer: 50% Off Hosting!
-        </div>
+    <!-- News Start -->
+    <div class="bg-white h-16 text-sm font-normal text-black px-32 flex items-center gap-5 mb-1 shadow">
+        <strong class="bg-[#c4c3f6] font-medium rounded-md py-1 px-3">News:</strong>
+        <p>Limited-Time Offer: 50% Off Hosting!</p>
+    </div>
+    <!-- News End -->
 
-        <!-- Navigation Tabs -->
-        <div class="custom-navbar">
-            <ul class="navs main-nav list-unstyled">
-                <li>
-                    <a href="#">My Invoices</a>
-                </li>
-                <li>
-                    <a href="#">My Quotes</a>
-                </li>
-                <li>
-                    <a href="#">Mass Payment</a>
-                </li>
-                <li>
-                    <a href="#">Add Funds</a>
-                </li>
-            </ul>
-            <ul class="navs nav-extra list-unstyled">
-                <li>
-                    <span class="status-nav">Paid <span class="badge">100</span></span>
-                </li>
-                <li>
-                    <span class="status-nav">Unpaid <span class="badge">3</span></span>
-                </li>
-                <li>
-                    <span class="status-nav">Cancelled <span class="badge">1</span></span>
-                </li>
-                <li>
-                    <span class="status-nav">Refund <span class="badge">0</span></span>
-                </li>
-            </ul>
-        </div>
+    <!-- Navbar Start -->
+    <nav class="flex justify-between items-center bg-white h-16 px-60 shadow relative z-10">
+        <ul class="list-none flex items-center gap-1">
+            <li>
+                <a href="#" class="flex items-center gap-1 whitespace-nowrap text-xs font-medium text-[#6c757d] p-3 transition-all duration-200 ease-in-out hover:text-[#08005E] border-b border-transparent hover:border-[#08005E]">
+                    My Invoices
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center gap-1 whitespace-nowrap text-xs font-medium text-[#6c757d] p-3 transition-all duration-200 ease-in-out hover:text-[#08005E] border-b border-transparent hover:border-[#08005E]">
+                    My Quotes
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center gap-1 whitespace-nowrap text-xs font-medium text-[#6c757d] p-3 transition-all duration-200 ease-in-out hover:text-[#08005E] border-b border-transparent hover:border-[#08005E]">
+                    Mass Payment
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center gap-1 whitespace-nowrap text-xs font-medium text-[#6c757d] p-3 transition-all duration-200 ease-in-out hover:text-[#08005E] border-b border-transparent hover:border-[#08005E]">
+                    Add Funds
+                </a>
+            </li>
+        </ul>
+        <ul class="list-none flex items-center gap-1">
+            <li>
+                <a href="#" class="group flex items-center gap-1 whitespace-nowrap text-xs font-medium text-[#232b37] rounded-md p-3 transition-all duration-200 ease-in-out">
+                    <span class="group-hover:bg-gradient-to-r group-hover:from-[#730384] group-hover:to-[#F211C8] group-hover:bg-clip-text group-hover:text-transparent group-hover:[-webkit-background-clip:text] group-hover:[-webkit-text-fill-color:transparent]">
+                        Paid
+                    </span>
+                    <span class="bg-[#304166] text-xs font-medium text-white px-1 rounded-sm transition-all duration-200 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#730384] group-hover:to-[#F211C8] group-hover:text-white">
+                        100
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="group flex items-center gap-1 whitespace-nowrap text-xs font-medium text-[#232b37] rounded-md p-3 transition-all duration-200 ease-in-out">
+                    <span class="group-hover:bg-gradient-to-r group-hover:from-[#730384] group-hover:to-[#F211C8] group-hover:bg-clip-text group-hover:text-transparent group-hover:[-webkit-background-clip:text] group-hover:[-webkit-text-fill-color:transparent]">
+                        Unpaid
+                    </span>
+                    <span class="bg-[#304166] text-xs font-medium text-white px-1 rounded-sm transition-all duration-200 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#730384] group-hover:to-[#F211C8] group-hover:text-white">
+                        3
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="group flex items-center gap-1 whitespace-nowrap text-xs font-medium text-[#232b37] rounded-md p-3 transition-all duration-200 ease-in-out">
+                    <span class="group-hover:bg-gradient-to-r group-hover:from-[#730384] group-hover:to-[#F211C8] group-hover:bg-clip-text group-hover:text-transparent group-hover:[-webkit-background-clip:text] group-hover:[-webkit-text-fill-color:transparent]">
+                        Cancelled
+                    </span>
+                    <span class="bg-[#304166] text-xs font-medium text-white px-1 rounded-sm transition-all duration-200 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#730384] group-hover:to-[#F211C8] group-hover:text-white">
+                        1
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="group flex items-center gap-1 whitespace-nowrap text-xs font-medium text-[#232b37] rounded-md p-3 transition-all duration-200 ease-in-out">
+                    <span class="group-hover:bg-gradient-to-r group-hover:from-[#730384] group-hover:to-[#F211C8] group-hover:bg-clip-text group-hover:text-transparent group-hover:[-webkit-background-clip:text] group-hover:[-webkit-text-fill-color:transparent]">
+                        Refund
+                    </span>
+                    <span class="bg-[#304166] text-xs font-medium text-white px-1 rounded-sm transition-all duration-200 ease-in-out group-hover:bg-gradient-to-r group-hover:from-[#730384] group-hover:to-[#F211C8] group-hover:text-white">
+                        0
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Navbar End -->
 
-        <!-- Alerts -->
-        <div class="alerts">
+    <main class="relative bg-[#F5F6FB] pt-3 pb-40 bg-server bg-no-repeat bg-left-bottom bg-[length:250px_auto]">
+        <!-- Alerts Start -->
+        <div class="mb-3 mx-60">
             <!-- Alert 1 -->
-            <div class="custom-alert yellow-warning">
-                <div class="alert-content">
-                    <img src="images/yellow-warning.svg" alt="Warning Icon" class="icon-alert">
+            <div class="flex items-center justify-between rounded-xl bg-white border-l-4 border-l-[#f7931e] shadlg-sm py-2.5 px-8 mb-2.5">
+                <div class="flex items-center gap-5">
+                    <img src="images/yellow-warning.svg" alt="Warning Icon">
                     <div class="text-wrapper">
-                        <h3>Scheduled Network Status</h3>
-                        <div class="alert-text">
+                        <h3 class="text-sm font-bold text-[#212529]">
+                            Scheduled Network Status
+                        </h3>
+                        <p class="text-xs font-medium text-[#6C757D]">
                             There are upcoming maintenance events which may impact our services.
-                        </div>
+                        </p>
                     </div>
                 </div>
-                <div class="alert-actions">
-                    <button class="btn">Learn more</button>
-                    <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true"><img src="images/close.svg" alt="close" class="close-button"></span>
+                <div class="flex items-center gap-5">
+                    <a href="#" class="bg-[#F2F0F0] text-xs font-medium text-[#495057] rounded-md px-8 py-2.5 hover:bg-[#e0dedc] transition-all duration-200 ease-in-out">
+                        Learn More
+                    </a>
+                    <button type="button" class="mx-5 hover:brightness-200" aria-label="Close">
+                        <span aria-hidden="true">
+                            <img src="images/close.svg" alt="close">
+                        </span>
                     </button>
                 </div>
             </div>
 
             <!-- Alert 2 -->
-            <div class="custom-alert yellow-warning">
-                <div class="alert-content">
-                    <img src="images/yellow-warning.svg" alt="Warning Icon" class="icon-alert">
+            <div class="flex items-center justify-between rounded-xl bg-white border-l-4 border-l-[#f7931e] shadlg-sm py-2.5 px-8 mb-2.5">
+                <div class="flex items-center gap-5">
+                    <img src="images/yellow-warning.svg" alt="Warning Icon">
                     <div class="text-wrapper">
-                        <h3>Verify Registration</h3>
-                        <div class="alert-text">
+                        <h3 class="text-sm font-bold text-[#212529]">
+                            Verify Registration
+                        </h3>
+                        <p class="text-xs font-medium text-[#6C757D]">
                             Please check your email and follow the link to verify your email address.
-                        </div>
+                        </p>
                     </div>
                 </div>
-                <div class="alert-actions">
-                    <button class="btn">Resend Verification Email</button>
-                    <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true"><img src="images/close.svg" alt="close" class="close-button"></span>
+                <div class="flex items-center gap-5">
+                    <a href="#" class="bg-[#F2F0F0] text-xs font-medium text-[#495057] rounded-md px-8 py-2.5 hover:bg-[#e0dedc] transition-all duration-200 ease-in-out">
+                        Resend Verification Email
+                    </a>
+                    <button type="button" class="mx-5 hover:brightness-200" aria-label="Close">
+                        <span aria-hidden="true">
+                            <img src="images/close.svg" alt="close">
+                        </span>
                     </button>
                 </div>
             </div>
         </div>
+        <!-- Alerts End -->
 
-        <!-- Content -->
-        <div class="container-fluid">
-            <div class="row ">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="table-container">
-                            <table id="table" class="row-border">
-                                <thead>
-                                    <tr>
-                                        <th>Invoice</th>
-                                        <th>Invoice Date</th>
-                                        <th>Due Date</th>
-                                        <th>Total</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status paid">
-                                                PAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status paid">
-                                                PAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status refund">
-                                                REFUND
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status cancel">
-                                                CANCEL
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            #445
-                                        </td>
-                                        <td>
-                                            <span class="text-green">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <span class="text-red">
-                                                24/12/2025
-                                            </span>
-                                        </td>
-                                        <td>
-                                            140.000 IDR
-                                        </td>
-                                        <td>
-                                            <span class="status unpaid">
-                                                UNPAID
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <a href="my-invoices-detail" class="btn btn-type-1">
-                                                    View Invoice
-                                                </a>
-                                                <a href="#" class="action-icon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
-                                                        <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+        <!-- Content Start -->
+        <section class="grid grid-cols-12 gap-6 mx-60">
+            <div class="col-span-12">
+                <div class="bg-white shadow mb-5 py-9 px-11 rounded-lg">
+                    <table id="table" class="row-border">
+                        <thead>
+                            <tr>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    Invoice
+                                </th>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    Invoice Date
+                                </th>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    Due Date
+                                </th>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    Total
+                                </th>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    Status
+                                </th>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-paid flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Paid
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-paid flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Paid
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-refund flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Refund
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-paid flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Paid
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-paid flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Paid
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-paid flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Paid
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-paid flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Paid
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-cancel flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Cancel
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-paid flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Paid
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-unpaid flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Unpaid
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-cancel flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Cancel
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    #445
+                                </td>
+                                <td class="text-sm font-medium text-[#28BA6D]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#F14D11]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    140.000 IDR
+                                </td>
+                                <td>
+                                    <span class="status-paid flex items-center justify-center py-1 px-4 text-xs font-medium uppercase">
+                                        Paid
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <div class="inline-flex items-center gap-1">
+                                        <a href="my-invoices-detail" class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            View Invoice
+                                        </a>
+                                        <a href="#" class="text-[#6C757D] hover:text-[#3299EE]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="19" viewBox="0 0 22 19" fill="none">
+                                                <path d="M16.2281 5.25078C15.9376 5.19303 15.7005 5.01191 15.5789 4.75291C14.2209 1.89078 11.0788 0.290407 7.93575 0.869657C5.07275 1.39466 2.82837 3.68016 2.34975 6.55803C2.208 7.40766 2.2185 8.25816 2.37862 9.08678C2.43112 9.35716 2.31475 9.65816 2.07588 9.87516C1.074 10.786 0.5 12.0837 0.5 13.4364C0.5 16.0894 2.65863 18.2489 5.3125 18.2489H14.9375C18.5565 18.2489 21.5 15.3054 21.5 11.6864C21.5 8.56703 19.2827 5.86066 16.2272 5.25166L16.2281 5.25078ZM14.9384 16.498H5.31337C3.62462 16.498 2.25087 15.1243 2.25087 13.4355C2.25087 12.5754 2.61662 11.7485 3.25362 11.1693C3.94137 10.5437 4.26425 9.61791 4.09625 8.75166C3.9755 8.12866 3.9685 7.48728 4.07525 6.84328C4.42788 4.72403 6.14463 2.97491 8.24988 2.58903C8.58675 2.52778 8.92188 2.49803 9.25175 2.49803C11.2748 2.49803 13.107 3.62591 13.996 5.50278C14.3583 6.26578 15.046 6.79866 15.8842 6.96666C18.1234 7.41378 19.7491 9.39741 19.7491 11.6864C19.7491 14.3394 17.5905 16.4989 14.9366 16.4989L14.9384 16.498ZM13.7318 10.6294C14.0739 10.9715 14.0739 11.5245 13.7318 11.8667L11.3631 14.2353C11.0245 14.5739 10.5791 14.7445 10.1337 14.7463L10.1259 14.748L10.118 14.7463C9.67263 14.7445 9.22725 14.5739 8.88863 14.2353L6.52 11.8667C6.17788 11.5245 6.17788 10.9715 6.52 10.6294C6.86212 10.2873 7.41513 10.2873 7.75725 10.6294L9.25088 12.123V7.74803C9.25088 7.26416 9.64288 6.87303 10.1259 6.87303C10.6089 6.87303 11.0009 7.26416 11.0009 7.74803V12.123L12.4945 10.6294C12.8366 10.2873 13.3896 10.2873 13.7318 10.6294Z" fill="currentColor"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <!-- Content End -->
+    </main>
+
+    <!-- Footer Start -->
+    <footer class="px-2.5 bg-white">
+        <div class="py-7 px-24">
+            <div class="mb-2.5">
+                <img src="images/logo.svg" alt="Cloudpedia Logo" class="w-48">
+            </div>
+            <div class="flex justify-between gap-24">
+                <div class="basis-1/3">
+                    <p class="text-sm font-medium text-[#304166] mb-2.5">
+                        Access the full potential of WHMCS with Shufy themes, featuring a new user-friendly client area, simplified ordering process, and much more!
+                    </p>
+                    <div class="space-y-2.5">
+                        <div class="flex items-center gap-2.5">
+                            <img src="images/icon-mail.svg" alt="Icon Mail">
+                            <a href="mailto:noreply@Cloudpedia.id" class="text-xs font-semibold text-[#0f44a0] hover:text-[#304166] hover:underline">
+                                noreply@Cloudpedia.id
+                            </a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <img src="images/icon-phone.svg" alt="Icon Phone">
+                            <a href="#" class="text-xs font-semibold text-[#0f44a0] hover:text-[#304166] hover:underline">
+                                +62 853-3656-9836
+                            </a>
+                        </div>
+                        <div class="mt-1 space-y-0.5">
+                            <h5 class="text-xs font-medium text-[#304166]">Alamat Pusat</h5>
+                            <div class="flex items-center gap-2.5">
+                                <img src="images/icon-address-white.svg" alt="Icon Address">
+                                <a class="text-xs font-medium text-[#304166]">
+                                    Soho Vittorio Citraland, Unit 708 Lt.7 Jl. Raya Menganti Karangan No. 32, RT.000 RW.000, Babatan, Wiyung, Kota Surabaya, Jawa Timur
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mt-1 space-y-0.5">
+                            <h5 class="text-xs font-medium text-[#304166]">Alamat Cabang</h5>
+                            <div class="flex items-center gap-2.5">
+                                <img src="images/icon-address-black.svg" alt="Icon Address">
+                                <a class="text-xs font-medium text-[#304166]">
+                                    Ruko Este Square, Blok A12 No.56-58 Jl. Dr. Ir. H. Soekarno, Mulyorejo, Kec. Mulyorejo, Surabaya, Jawa Timur 60115
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="basis-2/3 grid grid-cols-5 gap-10">
+                    <div>
+                        <h4 class="text-lg font-bold text-black mb-1">Product</h4>
+                        <ul class="list-none space-y-1">
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Web Hosting</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Reseller Hosting</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">VPS Hosting</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Dedicated Servers</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-black mb-1">Resources</h4>
+                        <ul class="list-none space-y-1">
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Minecraft Hosting</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Website Builder</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">cPanel Reseller</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Wordpress Hosting</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-black mb-1">Domains</h4>
+                        <ul class="list-none space-y-1">
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Domain Checker</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Free Domain</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">WHOIS Checker</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-black mb-1">Services</h4>
+                        <ul class="list-none space-y-1">
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">SSL Certificates</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">E-Mail Services</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Site Builder</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Website Builder</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Professional Email</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Website Security</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Website Backup</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Seo Tools</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-black mb-1">Legal</h4>
+                        <ul class="list-none space-y-1">
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Terms & Conditions</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Browser Cookies</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Licesses</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <img src="images/server.png" class="server-content-img" alt="Server Illustration" />
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-top">
-            <div class="footer-logo">
-                <img src="images/logo.svg" alt="Cloudpedia Logo" class="logo">
-            </div>
-            <div class="footer-content">
-                <div class="footer-left">
-                    <p class="desc">
-                        Access the full potential of WHMCS with Shufy themes, featuring a new user-friendly client area, simplified ordering process, and much more!
-                    </p>
-
-                    <!-- Email -->
-                    <a href="mailto:noreply@Cloudpedia.id" class="contact-list">
-                        <img src="images/icon-mail.svg" alt="Icon Mail">
-                        <span>noreply@Cloudpedia.id</span>
-                    </a>
-
-                    <!-- Phone -->
-                    <a href="#" class="contact-list">
-                        <img src="images/icon-phone.svg" alt="Icon Phone">
-                        <span>+62 853-3656-9836</span>
-                    </a>
-
-                    <!-- Alamat Pusat -->
-                    <span class="contact-title">Alamat Pusat</span>
-                    <p class="contact-list">
-                        <img src="images/icon-address-white.svg" alt="Icon Address">
-                        <span class="address">
-                            Soho Vittorio Citraland, Unit 708 Lt.7 Jl. Raya Menganti Karangan No. 32, RT.000 RW.000, Babatan, Wiyung, Kota Surabaya, Jawa Timur
-                        </span>
-                    </p>
-
-                    <!-- Alamat Cabang -->
-                    <span class="contact-title">Alamat Cabang</span>
-                    <p class="contact-list">
-                        <img src="images/icon-address-black.svg" alt="Icon Address">
-                        <span class="address">
-                            Ruko Este Square, Blok A12 No.56-58 Jl. Dr. Ir. H. Soekarno, Mulyorejo, Kec. Mulyorejo, Surabaya, Jawa Timur 60115
-                        </span>
-                    </p>
-                </div>
-    
-                <div class="footer-right">
-                    <div class="footer-col">
-                        <h4>Product</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Web Hosting</a></li>
-                            <li><a href="#">Reseller Hosting</a></li>
-                            <li><a href="#">VPS Hosting</a></li>
-                            <li><a href="#">Dedicated Servers</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Resources</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Minecraft Hosting</a></li>
-                            <li><a href="#">Website Builder</a></li>
-                            <li><a href="#">cPanel Reseller</a></li>
-                            <li><a href="#">Wordpress Hosting</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Domains</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Domain Checker</a></li>
-                            <li><a href="#">Free Domain</a></li>
-                            <li><a href="#">WHOIS Checker</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Services</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#">SSL Certificates</a></li>
-                            <li><a href="#">E-Mail Services</a></li>
-                            <li><a href="#">Site Builder</a></li>
-                            <li><a href="#">Website Builder</a></li>
-                            <li><a href="#">Professional Email</a></li>
-                            <li><a href="#">Website Security</a></li>
-                            <li><a href="#">Website Backup</a></li>
-                            <li><a href="#">Seo Tools</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Legal</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Browser Cookies</a></li>
-                            <li><a href="#">Licesses</a></li>
-                            <li><a href="#">Settings</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>Copyright © 2025 Cloudpedia. All Rights Reserved. Powered by TAN</p>
+        <div class="py-6 px-24 border-t border-black/10">
+            <p class="text-xs font-medium text-[#304166]">Copyright © 2025 Cloudpedia. All Rights Reserved. Powered by TAN</p>
         </div>
     </footer>
+    <!-- Footer End -->
 
     <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!-- DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/2.3.4/js/dataTables.js"></script>
-
-    <!-- My JSs -->
     <script src="js/script.js"></script>
 </body>
 </html>
