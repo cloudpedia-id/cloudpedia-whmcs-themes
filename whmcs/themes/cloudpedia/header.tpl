@@ -6,6 +6,7 @@
     <title>{if $kbarticle.title}{$kbarticle.title} - {/if}{$pagetitle} - {$companyname}</title>
     {include file="$template/includes/head.tpl"}
     {$headoutput}
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="primary-bg-color" data-phone-cc-input="{$phoneNumberInputStyle}">
 
