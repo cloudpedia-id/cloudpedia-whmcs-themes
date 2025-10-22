@@ -45,5 +45,59 @@ $(document).ready(function() {
                 previous: "Previous"
             }
         },
+        createdRow: function (row){
+            $(row).addClass('hover:bg-[#EFF5FC]');
+            $('td', row).addClass('align-middle');
+        },
     });
+});
+
+// Dropdown
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdowns = document.querySelectorAll('[data-dropdown]');
+
+    dropdowns.forEach(dropdown => {
+        const btn = dropdown.querySelector('[data-dropdown-button]');
+        const menu = dropdown.querySelector('[data-dropdown-menu]');
+        const icon = dropdown.querySelector('[data-dropdown-icon]');
+
+        // Toggle dropdown
+        const toggleDropdown = () => {
+            const isOpen = !menu.classList.contains('hidden');
+            closeAllDropdowns(); // Tutup dropdown lain
+
+            if (isOpen) {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                menu.classList.remove('hidden');
+                btn.setAttribute('aria-expanded', 'true');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        };
+
+        // Klik tombol
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleDropdown();
+        });
+    });
+
+    // Klik di luar dropdown → tutup semua
+    document.addEventListener('click', () => {
+        closeAllDropdowns();
+    });
+
+    function closeAllDropdowns() {
+        document.querySelectorAll('[data-dropdown-menu]').forEach(menu => {
+            menu.classList.add('hidden');
+        });
+        document.querySelectorAll('[data-dropdown-button]').forEach(btn => {
+            btn.setAttribute('aria-expanded', 'false');
+        });
+        document.querySelectorAll('[data-dropdown-icon]').forEach(icon => {
+            icon.style.transform = 'rotate(0deg)';
+        });
+    }
 });

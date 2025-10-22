@@ -5,233 +5,255 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Domains</title>
 
-    <!-- Bootstrap 3 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
-
-    <!-- Datatables -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.css" />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar collapsed" id="sidebar">
-        <!-- Tombol toggle -->
-        <button class="toggle-btn img-circle" onclick="toggleSidebar()">
+        <!-- Sidebar -->
+    <div id="sidebar" class="sidebar group/sidebar fixed top-0 left-0 h-screen w-20 [&.expanded]:w-60 py-5 bg-sidebar shadow-sidebar-glow backdrop-blur-lg rounded-r-xl transition-all duration-500 ease-in-out z-50">
+        <!-- Toggle Button -->
+        <button onclick="toggleSidebar()" class="toggle-btn absolute top-9 -right-3 w-6 h-6 rounded-full flex items-center justify-center border border-white cursor-pointer transition-all duration-500 bg-primary-gradient rotate-0 group-[.expanded]/sidebar:rotate-180">
             <img src="images/sidebar-arrow-toggle.svg" alt="Sidebar Toggle">
         </button>
 
-        <!-- Logo -->
-        <div class="sidebar-header">
-            <div class="sidebar-logo">
-                <img src="images/sidebar-logo.svg" alt="Sidebar Logo">
-            </div>
-            <div class="sidebar-avatar">
-                <img src="images/avatar.jpg" class="img-circle" width="48" height="48">
-            </div>
+        <!-- Header -->
+        <div class="flex flex-col items-center justify-center gap-4 w-20 mb-2.5 px-2.5">
+            <img src="images/sidebar-logo.svg" alt="Sidebar Logo" class="h-5">
+            <img src="images/avatar.jpg" class="w-12 h-12 rounded-full">
         </div>
 
         <!-- Menu -->
-        <ul class="menu list-unstyled">
+        <ul class="list-none mx-4 space-y-1 text-xs font-bold text-white">
             <li>
-                <a href="" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-home.svg" class="icon-menu" alt="Home">
-                        <span class="text">Home</span>
+                <a href="" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-home.svg" alt="Home">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Home
+                        </span>
                     </div>
                 </a>
             </li>
-            <li class="has-submenu">
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-service.svg" class="icon-menu" alt="Service">
-                        <span class="text">Service</span>
+            <li class="has-submenu group/menu">
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu group-[.open]/menu:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-service.svg" alt="Service">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Service
+                        </span>
                     </div>
-                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                    <img src="images/sidebar-arrow-more.svg" alt="More Icon" class="hidden transition-transform duration-200 group-[.expanded]/sidebar:inline-block group-[.open]/menu:-rotate-90">
                 </a>
 
                 <!-- Submenu -->
-                <ul class="submenu list-unstyled">
-                    <li class="submenu-title">Service</li>
+                <ul class="list-none opacity-0 invisible absolute w-48 ml-[100%] -mt-10 space-y-2.5 py-3 px-2.5 bg-[#B497FF] shadow-sidebar-glow backdrop-blur-2xl rounded-xl translate-x-[-15px] transition-all duration-300 ease-in-out group-[.open]/menu:opacity-100 group-[.open]/menu:visible group-[.open]/menu:translate-x-0 z-50">
                     <li>
-                        <a href="my-services">
+                        <h4 class="font-extrabold py-1">
+                            Service
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="my-services" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             My Service
                         </a>
                     </li>
                     <li>
-                        <a href="renew-services">
+                        <a href="renew-services" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Renew Services
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Order New Service
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             View Availible Addons
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="has-submenu">
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-domain.svg" class="icon-menu" alt="Domain">
-                        <span class="text">Domain</span>
+            <li class="has-submenu group/menu">
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu group-[.open]/menu:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-domain.svg" alt="Domain">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Domain
+                        </span>
                     </div>
-                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                    <img src="images/sidebar-arrow-more.svg" alt="More Icon" class="hidden transition-transform duration-200 group-[.expanded]/sidebar:inline-block group-[.open]/menu:-rotate-90">
                 </a>
 
                 <!-- Submenu -->
-                <ul class="submenu list-unstyled">
-                    <li class="submenu-title">Domain</li>
+                <ul class="list-none opacity-0 invisible absolute w-48 ml-[100%] -mt-10 space-y-2.5 py-3 px-2.5 bg-[#B497FF] shadow-sidebar-glow backdrop-blur-2xl rounded-xl translate-x-[-15px] transition-all duration-300 ease-in-out group-[.open]/menu:opacity-100 group-[.open]/menu:visible group-[.open]/menu:translate-x-0 z-50">
                     <li>
-                        <a href="my-domains">
+                        <h4 class="font-extrabold py-1">
+                            Domain
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="my-domains" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             My Domain
                         </a>
                     </li>
                     <li>
-                        <a href="renew-domains">
+                        <a href="renew-domains" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Renew Domain
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Register a New Domain
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Transfer Domain to Us
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Domain Search
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="has-submenu">
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-security.svg" class="icon-menu" alt="Security">
-                        <span class="text">Website & Security</span>
+            <li class="has-submenu group/menu">
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu group-[.open]/menu:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-security.svg" class alt="Security">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Website & Security
+                        </span>
                     </div>
-                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                    <img src="images/sidebar-arrow-more.svg" alt="More Icon" class="hidden transition-transform duration-200 group-[.expanded]/sidebar:inline-block group-[.open]/menu:-rotate-90">
                 </a>
 
                 <!-- Submenu -->
-                <ul class="submenu list-unstyled">
-                    <li class="submenu-title">Website & Security</li>
+                <ul class="list-none opacity-0 invisible absolute w-48 ml-[100%] -mt-10 space-y-2.5 py-3 px-2.5 bg-[#B497FF] shadow-sidebar-glow backdrop-blur-2xl rounded-xl translate-x-[-15px] transition-all duration-300 ease-in-out group-[.open]/menu:opacity-100 group-[.open]/menu:visible group-[.open]/menu:translate-x-0 z-50">
                     <li>
-                        <a href="website-security">
+                        <h4 class="font-extrabold py-1">
+                            Website & Security
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="website-security" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Website Security
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             XOVI NOW
                         </a>
                     </li>
                     <li>
-                        <a href="vpn">
+                        <a href="vpn" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             VPN
                         </a>
                     </li>
                     <li>
-                        <a href="ssl-ceriticates">
+                        <a href="ssl-ceriticates" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             SSL Certificates
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Site & Server Monitoring
                         </a>
                     </li>
                     <li>
-                        <a href="manage-ssl-certificates">
+                        <a href="manage-ssl-certificates" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Manage SSL Certificates
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="has-submenu">
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-billing.svg" class="icon-menu" alt="Billing">
-                        <span class="text">Billing</span>
+            <li class="has-submenu group/menu">
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu group-[.open]/menu:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-billing.svg" alt="Billing">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Billing
+                        </span>
                     </div>
-                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                    <img src="images/sidebar-arrow-more.svg" alt="More Icon" class="hidden transition-transform duration-200 group-[.expanded]/sidebar:inline-block group-[.open]/menu:-rotate-90">
                 </a>
 
                 <!-- Submenu -->
-                <ul class="submenu list-unstyled">
-                    <li class="submenu-title">Billing</li>
+                <ul class="list-none opacity-0 invisible absolute w-48 ml-[100%] -mt-10 space-y-2.5 py-3 px-2.5 bg-[#B497FF] shadow-sidebar-glow backdrop-blur-2xl rounded-xl translate-x-[-15px] transition-all duration-300 ease-in-out group-[.open]/menu:opacity-100 group-[.open]/menu:visible group-[.open]/menu:translate-x-0 z-50">
                     <li>
-                        <a href="my-invoices">
+                        <h4 class="font-extrabold py-1">
+                            Billing
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="my-invoices" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             My Invoices
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Quotes
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Mass Payment
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Payment Methods
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Add Funds
                         </a>
                     </li>
                 </ul>
             </li>
-            <li class="has-submenu">
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-support.svg" class="icon-menu" alt="Support">
-                        <span class="text">Support</span>
+            <li class="has-submenu group/menu">
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-sidebar-menu group-[.open]/menu:bg-sidebar-menu">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-support.svg" alt="Support">
+                        <span class="hidden whitespace-nowrap group-[.expanded]/sidebar:inline">
+                            Support
+                        </span>
                     </div>
-                    <img src="images/sidebar-arrow-more.svg" class="more-icon" alt="More Icon">
+                    <img src="images/sidebar-arrow-more.svg" alt="More Icon" class="hidden transition-transform duration-200 group-[.expanded]/sidebar:inline-block group-[.open]/menu:-rotate-90">
                 </a>
 
                 <!-- Submenu -->
-                <ul class="submenu list-unstyled">
-                    <li class="submenu-title">Support</li>
+                <ul class="list-none opacity-0 invisible absolute w-48 ml-[100%] -mt-10 space-y-2.5 py-3 px-2.5 bg-[#B497FF] shadow-sidebar-glow backdrop-blur-2xl rounded-xl translate-x-[-15px] transition-all duration-300 ease-in-out group-[.open]/menu:opacity-100 group-[.open]/menu:visible group-[.open]/menu:translate-x-0 z-50">
                     <li>
-                        <a href="my-support-tickets">
+                        <h4 class="font-extrabold py-1">
+                            Support
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="my-support-tickets" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Tickets
                         </a>
                     </li>
                     <li>
-                        <a href="announcement">
+                        <a href="announcement" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Announcement
                         </a>
                     </li>
                     <li>
-                        <a href="knowledgebase">
+                        <a href="knowledgebase" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Knowledgebase
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Downloads
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="#" class="block p-2 font-medium rounded-md border border-white/15 hover:bg-white/20">
                             Network Status
                         </a>
                     </li>
@@ -240,574 +262,1073 @@
         </ul>
 
         <!-- Messages -->
-        <div class="messages">
-            <p class="title">
+        <div class="text-xs font-medium text-white/40 uppercase m-1 rounded-lg transition-all duration-500 group-[.expanded]/sidebar:bg-indigo-300/20">
+            <h4 class="flex items-center justify-between h-10 px-2 text-[10px]">
                 MESSAGES
-                <button class="btn">
-                    +
+                <button class="hidden hover:text-white group-[.expanded]/sidebar:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z" />
+                    </svg>
                 </button>
-            </p>
-            <ul class="list-unstyled">
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-1.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Erik Gunsel</span>
+            </h4>
+            <ul class="list-none h-36 mx-4 overflow-x-hidden overflow-y-auto scrollbar-hide transition-all duration-300 group-[.expanded]/sidebar:mx-0 group-[.expanded]/sidebar:scrollbar-custom">
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-1.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Erik Gunsel</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-2.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status offline"></div>
-                    </div>
-                    <span class="text">Emily Smith</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-2.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-orange-300"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Emily Smith</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Arthur Adelk</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-3.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Arthur Adelk</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Arthur Adelk</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-3.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Elven Constancio</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Arthur Adelk</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-3.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Aisyah</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Arthur Adelk</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-3.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Ratu Intan Amelia Wanda Sari</span>
+                    </a>
                 </li>
-                <li class="message-user">
-                    <div class="avatar-wrapper">
-                        <img src="images/user-avatar-3.jpg" alt="User Avatar" class="img-circle" width="24" height="24">
-                        <div class="message-status online"></div>
-                    </div>
-                    <span class="text">Arthur Adelk</span>
+                <li>
+                    <a href="#" class="flex items-center gap-2.5 py-1.5 px-2 transition-all duration-300 rounded-lg hover:bg-indigo-300/40">
+                        <div class="relative inline-block flex-shrink-0">
+                            <img src="images/user-avatar-3.jpg" alt="User Avatar" class="rounded-full w-6 h-6">
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border border-[#666260] rounded-full bg-orange-300"></div>
+                        </div>
+                        <span class="hidden whitespace-nowrap truncate group-[.expanded]/sidebar:inline">Fatimah Intan</span>
+                    </a>
                 </li>
             </ul>
         </div>
 
-        <!-- Bottom -->
-        <ul class="menu list-unstyled">
+        <!-- Bottom Menu -->
+        <ul class="list-none mx-4 space-y-1 text-xs font-bold text-white">
             <li>
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-profile.svg" class="icon-menu" alt="Home">
-                        <span class="text">Profile</span>
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-black/20">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-profile.svg" alt="Profile">
+                        <span class="hidden whitespace-nowrap transition-all group-[.expanded]/sidebar:inline">
+                            Profile
+                        </span>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="#" class="menu-item">
-                    <div class="item-name">
-                        <img src="images/sidebar-icon-logout.svg" class="icon-menu" alt="Home">
-                        <span class="text">Logout</span>
+                <a href="#" class="w-full flex items-center justify-between px-4 py-3.5 rounded-lg cursor-pointer hover:bg-black/20">
+                    <div class="flex items-center gap-3.5 h-3.5">
+                        <img src="images/sidebar-icon-logout.svg" alt="Logout">
+                        <span class="hidden whitespace-nowrap transition-all group-[.expanded]/sidebar:inline">
+                            Logout
+                        </span>
                     </div>
                 </a>
             </li>
         </ul>
     </div>
 
-    <section class="dashboard-page">
-        <!-- Top Bar News -->
-        <div class="news-alert">
-            <div class="news">News:</div> Limited-Time Offer: 50% Off Hosting!
-        </div>
+    <!-- News Start -->
+    <div class="bg-white h-16 text-sm font-normal text-black px-32 flex items-center gap-5 mb-1 shadow">
+        <strong class="bg-[#c4c3f6] font-medium rounded-md py-1 px-3">News:</strong>
+        <p>Limited-Time Offer: 50% Off Hosting!</p>
+    </div>
+    <!-- News End -->
 
-        <!-- Navigation Tabs -->
-        <div class="custom-navbar">
-            <ul class="navs main-nav list-unstyled">
-                <li>
-                    <a href="#">Renew Domains</a>
-                </li>
-                <li>
-                    <a href="#">Register a New Domain</a>
-                </li>
-                <li>
-                    <a href="#">Transfer in a Domain</a>
-                </li>
-            </ul>
-        </div>
+    <!-- Navbar Start -->
+    <nav class="flex justify-between items-center bg-white h-16 px-32 shadow relative z-10">
+        <ul class="list-none flex items-center gap-1">
+            <li>
+                <a href="#" class="flex items-center gap-1 whitespace-nowrap text-xs font-medium text-[#6c757d] p-3 transition-all duration-200 ease-in-out hover:text-[#08005E] border-b border-transparent hover:border-[#08005E]">
+                    Renew Services
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center gap-1 whitespace-nowrap text-xs font-medium text-[#6c757d] p-3 transition-all duration-200 ease-in-out hover:text-[#08005E] border-b border-transparent hover:border-[#08005E]">
+                    Place a New Order
+                </a>
+            </li>
+            <li>
+                <a href="#" class="flex items-center gap-1 whitespace-nowrap text-xs font-medium text-[#6c757d] p-3 transition-all duration-200 ease-in-out hover:text-[#08005E] border-b border-transparent hover:border-[#08005E]">
+                    View Available Addons
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Navbar End -->
 
-        <!-- Alerts -->
-        <div class="alerts">
+    <main class="relative bg-[#F5F6FB] pt-3 pb-40 bg-server bg-no-repeat bg-left-bottom bg-[length:250px_auto]">
+        <!-- Alerts Start -->
+        <div class="mb-3 mx-32">
             <!-- Alert 1 -->
-            <div class="custom-alert yellow-warning">
-                <div class="alert-content">
-                    <img src="images/yellow-warning.svg" alt="Warning Icon" class="icon-alert">
+            <div class="flex items-center justify-between rounded-xl bg-white border-l-4 border-l-[#f7931e] shadlg-sm py-2.5 px-8 mb-2.5">
+                <div class="flex items-center gap-5">
+                    <img src="images/yellow-warning.svg" alt="Warning Icon">
                     <div class="text-wrapper">
-                        <h3>Scheduled Network Status</h3>
-                        <div class="alert-text">
+                        <h3 class="text-sm font-bold text-[#212529]">
+                            Scheduled Network Status
+                        </h3>
+                        <p class="text-xs font-medium text-[#6C757D]">
                             There are upcoming maintenance events which may impact our services.
-                        </div>
+                        </p>
                     </div>
                 </div>
-                <div class="alert-actions">
-                    <button class="btn">Learn more</button>
-                    <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true"><img src="images/close.svg" alt="close" class="close-button"></span>
+                <div class="flex items-center gap-5">
+                    <a href="#" class="bg-[#F2F0F0] text-xs font-medium text-[#495057] rounded-md px-8 py-2.5 hover:bg-[#e0dedc] transition-all duration-200 ease-in-out">
+                        Learn More
+                    </a>
+                    <button type="button" class="mx-5 hover:brightness-200" aria-label="Close">
+                        <span aria-hidden="true">
+                            <img src="images/close.svg" alt="close">
+                        </span>
                     </button>
                 </div>
             </div>
 
             <!-- Alert 2 -->
-            <div class="custom-alert yellow-warning">
-                <div class="alert-content">
-                    <img src="images/yellow-warning.svg" alt="Warning Icon" class="icon-alert">
+            <div class="flex items-center justify-between rounded-xl bg-white border-l-4 border-l-[#f7931e] shadlg-sm py-2.5 px-8 mb-2.5">
+                <div class="flex items-center gap-5">
+                    <img src="images/yellow-warning.svg" alt="Warning Icon">
                     <div class="text-wrapper">
-                        <h3>Verify Registration</h3>
-                        <div class="alert-text">
+                        <h3 class="text-sm font-bold text-[#212529]">
+                            Verify Registration
+                        </h3>
+                        <p class="text-xs font-medium text-[#6C757D]">
                             Please check your email and follow the link to verify your email address.
-                        </div>
+                        </p>
                     </div>
                 </div>
-                <div class="alert-actions">
-                    <button class="btn">Resend Verification Email</button>
-                    <button type="button" class="close" aria-label="Close">
-                        <span aria-hidden="true"><img src="images/close.svg" alt="close" class="close-button"></span>
+                <div class="flex items-center gap-5">
+                    <a href="#" class="bg-[#F2F0F0] text-xs font-medium text-[#495057] rounded-md px-8 py-2.5 hover:bg-[#e0dedc] transition-all duration-200 ease-in-out">
+                        Resend Verification Email
+                    </a>
+                    <button type="button" class="mx-5 hover:brightness-200" aria-label="Close">
+                        <span aria-hidden="true">
+                            <img src="images/close.svg" alt="close">
+                        </span>
                     </button>
                 </div>
             </div>
         </div>
+        <!-- Alerts End -->
 
-        <!-- Content -->
-        <div class="container-fluid">
-            <div class="row ">
-                <!-- Left Content -->
-                <div class="col-md-9">
-                    <div class="card">
-                        <div class="table-container my-domains">
-                            <div class="table-button input-group">
-                                <div class="btn btn-type-1">Manage Name Server</div>
-                                <div class="btn btn-type-1">Edit Contact Information</div>
-                                <div class="btn btn-type-1">Renew Domains</div>
-                                <div class="dropdown">
-                                    <div class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">More... <span class="caret"></span></div>
-                                    <!-- Menu Dropdown -->
-                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                        <li>
-                                            <a href="#">Auto Renewal Status</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Registrat Lock Status</a>
-                                        </li>
-                                    </ul>
-                                </div>
+        <!-- Content Start -->
+        <section class="grid grid-cols-12 gap-6 mx-24">
+            <div class="col-span-9">
+                <div class="bg-white shadow mb-5 py-9 px-11 rounded-lg">
+                    <div class="flex items-center mb-5">
+                        <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded-l-md">Manage Name Server</button>
+                        <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc]">Edit Contact Information</button>
+                        <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc]">Renew Domains</button>
+                        <div class="relative inline-block" data-dropdown>
+                            <!-- Button Dropdown -->
+                            <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded-r-md">
+                                More...
+                                <svg data-dropdown-icon id="dropdownIcon" class="" width="7" height="5" viewBox="0 0 7 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.955429 0.5H6.04457C6.13465 0.500022 6.2227 0.53096 6.2976 0.588902C6.37249 0.646844 6.43086 0.72919 6.46533 0.825528C6.4998 0.921866 6.50882 1.02787 6.49125 1.13014C6.47368 1.23241 6.43031 1.32636 6.36663 1.4001L3.82206 4.34561C3.73663 4.44447 3.62079 4.5 3.5 4.5C3.37921 4.5 3.26337 4.44447 3.17794 4.34561L0.633372 1.4001C0.569685 1.32636 0.526316 1.23241 0.508748 1.13014C0.491179 1.02787 0.5002 0.921866 0.53467 0.825528C0.569139 0.72919 0.62751 0.646844 0.702403 0.588902C0.777296 0.53096 0.865349 0.500022 0.955429 0.5Z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                            <!-- Dropdown Menu -->
+                            <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                <li>
+                                    <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                        Auto Renewal Status
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                        Registrat Lock Status
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="group border border-[#6c757d] py-1 px-2.5 bg-white text-sm font-medium text-[#6c757d] rounded-2xl cursor-pointer transition-all duration-200 hover:bg-primary-gradient hover:text-white" data-status="Active">
+                            Active <span class="text-xs font-medium text-white bg-[#6c757d] px-1 py-0.5 rounded transition-all duration-200 group-hover:bg-white group-hover:text-[#BD01FF]">0</span>
+                        </button>
+                        <button class="group border border-[#6c757d] py-1 px-2.5 bg-white text-sm font-medium text-[#6c757d] rounded-2xl cursor-pointer transition-all duration-200 hover:bg-primary-gradient hover:text-white" data-status="Expired">
+                            Expired <span class="text-xs font-medium text-white bg-[#6c757d] px-1 py-0.5 rounded transition-all duration-200 group-hover:bg-white group-hover:text-[#BD01FF]">0</span>
+                        </button>
+                        <button class="group border border-[#6c757d] py-1 px-2.5 bg-white text-sm font-medium text-[#6c757d] rounded-2xl cursor-pointer transition-all duration-200 hover:bg-primary-gradient hover:text-white" data-status="Pending">
+                            Pending <span class="text-xs font-medium text-white bg-[#6c757d] px-1 py-0.5 rounded transition-all duration-200 group-hover:bg-white group-hover:text-[#BD01FF]">119</span>
+                        </button>
+                    </div>
+                    <table id="table" class="row-border">
+                        <thead>
+                            <tr>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    
+                                </th>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    Domains
+                                </th>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    Next Due Date
+                                </th>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    Auto Renew
+                                </th>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    Status
+                                </th>
+                                <th class="text-sm font-medium text-[#495057] text-left">
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    
+                                </td>
+                                <td>
+                                    <span class="status-suspended flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Suspended
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    1.000 IDR
+                                    <span class="text-xs font-normal">
+                                        Monthly
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-suspended flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Suspended
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    14.000 IDR
+                                    <span class="text-xs font-normal">
+                                        Annually
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-suspended flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Suspended
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    14.000 IDR
+                                    <span class="text-xs font-normal">
+                                        Annually
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-suspended flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Suspended
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    14.000 IDR
+                                    <span class="text-xs font-normal">
+                                        Annually
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-suspended flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Suspended
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    14.000 IDR
+                                    <span class="text-xs font-normal">
+                                        Annually
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-active flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Active
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    14.000 IDR
+                                    <span class="text-xs font-normal">
+                                        Annually
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-pending flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    14.000 IDR
+                                    <span class="text-xs font-normal">
+                                        Annually
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-active flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Active
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    14.000 IDR
+                                    <span class="text-xs font-normal">
+                                        Annually
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-pending flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    14.000 IDR
+                                    <span class="text-xs font-normal">
+                                        Annually
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-terminated flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Terminated
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    14.000 IDR
+                                    <span class="text-xs font-normal">
+                                        Annually
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-cancelled flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Cancelled
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="group relative flex items-center cursor-pointer select-none">
+                                        <input type="checkbox" class="hidden" />
+                                        <span class="w-5 h-5 flex items-center justify-center rounded-sm bg-[#d9d9d9] group-has-[input:checked]:bg-primary-gradient group-has-[input:checked]:rounded-md">
+                                            <span class="text-white text-sm hidden group-has-[input:checked]:inline">
+                                                ✔
+                                            </span>
+                                        </span>
+                                    </label>
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    <div class="flex items-center gap-1 text-sm font-normal text-[#2759cd]">
+                                        <img src="images/icon-globe-simple.svg" alt="Icon Globe" class="w-3.5">
+                                        Cloudpedia.com
+                                    </div>
+                                </td>
+                                <td class="text-sm font-medium text-[#495057]">
+                                    24/12/2025
+                                </td>
+                                <td class="text-base font-medium text-[#495057]">
+                                    14.000 IDR
+                                    <span class="text-xs font-normal">
+                                        Annually
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="status-pending flex items-center justify-center py-1 px-4 text-xs font-medium">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td class="text-right">
+                                    <button class="bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">Renew</button>
+                                    <div class="relative inline-block text-start" data-dropdown>
+                                        <!-- Button Dropdown -->
+                                        <button id="dropdownBtn" data-dropdown-button aria-expanded="false" class="inline-flex justify-center items-center gap-1 bg-[#f2f0f0] text-xs font-semibold text-[#304166] py-2 px-3 hover:bg-[#e0dedc] rounded">
+                                            ...
+                                        </button>
+                                        <!-- Dropdown Menu -->
+                                        <ul data-dropdown-menu id="dropdownMenu" class="absolute right-0 mt-2 p-2 w-40 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 hidden z-50">
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    View Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="block my-0.5 px-4 py-2 text-xs font-medium text-[#495057] rounded-md hover:bg-primary-gradient hover:text-white">
+                                                    Manage Domain
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="col-span-3">
+                <div class="bg-[#304166] shadow mb-5 rounded-lg h-1/2"></div>
+            </div>
+        </section>
+        <!-- Content End -->
+    </main>
+
+    <!-- Footer Start -->
+    <footer class="px-2.5 bg-white">
+        <div class="py-7 px-24">
+            <div class="mb-2.5">
+                <img src="images/logo.svg" alt="Cloudpedia Logo" class="w-48">
+            </div>
+            <div class="flex justify-between gap-24">
+                <div class="basis-1/3">
+                    <p class="text-sm font-medium text-[#304166] mb-2.5">
+                        Access the full potential of WHMCS with Shufy themes, featuring a new user-friendly client area, simplified ordering process, and much more!
+                    </p>
+                    <div class="space-y-2.5">
+                        <div class="flex items-center gap-2.5">
+                            <img src="images/icon-mail.svg" alt="Icon Mail">
+                            <a href="mailto:noreply@Cloudpedia.id" class="text-xs font-semibold text-[#0f44a0] hover:text-[#304166] hover:underline">
+                                noreply@Cloudpedia.id
+                            </a>
+                        </div>
+                        <div class="flex items-center gap-2.5">
+                            <img src="images/icon-phone.svg" alt="Icon Phone">
+                            <a href="#" class="text-xs font-semibold text-[#0f44a0] hover:text-[#304166] hover:underline">
+                                +62 853-3656-9836
+                            </a>
+                        </div>
+                        <div class="mt-1 space-y-0.5">
+                            <h5 class="text-xs font-medium text-[#304166]">Alamat Pusat</h5>
+                            <div class="flex items-center gap-2.5">
+                                <img src="images/icon-address-white.svg" alt="Icon Address">
+                                <a class="text-xs font-medium text-[#304166]">
+                                    Soho Vittorio Citraland, Unit 708 Lt.7 Jl. Raya Menganti Karangan No. 32, RT.000 RW.000, Babatan, Wiyung, Kota Surabaya, Jawa Timur
+                                </a>
                             </div>
-                            <div class="status-filters">
-                                <button class="filter-btn" data-status="Active">Active <span class="number">1</span></button>
-                                <button class="filter-btn" data-status="Active">Expired <span class="number">1</span></button>
-                                <button class="filter-btn" data-status="Pending">Pending <span class="number">1</span></button>
+                        </div>
+                        <div class="mt-1 space-y-0.5">
+                            <h5 class="text-xs font-medium text-[#304166]">Alamat Cabang</h5>
+                            <div class="flex items-center gap-2.5">
+                                <img src="images/icon-address-black.svg" alt="Icon Address">
+                                <a class="text-xs font-medium text-[#304166]">
+                                    Ruko Este Square, Blok A12 No.56-58 Jl. Dr. Ir. H. Soekarno, Mulyorejo, Kec. Mulyorejo, Surabaya, Jawa Timur 60115
+                                </a>
                             </div>
-                            <table id="table" class="row-border">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Domains</th>
-                                        <th>Next Due Date</th>
-                                        <th>Auto Renew</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox-wrap">
-                                                <input type="checkbox" class="checkbox">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text">
-                                                <img src="images/icon-globe-simple.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox" class="toggle">
-                                                <span class="slider">
-                                                    <span class="on-text">ON</span>
-                                                    <span class="off-text">OFF</span>
-                                                </span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-type-1">
-                                                    Renew
-                                                </button>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                        ...
-                                                    </button>
-                                                    <!-- Menu Dropdown -->
-                                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                                        <li>
-                                                            <a href="#">View Detail</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">Manage Domain</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox-wrap">
-                                                <input type="checkbox" class="checkbox">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text">
-                                                <img src="images/icon-globe-simple.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox" class="toggle">
-                                                <span class="slider">
-                                                    <span class="on-text">ON</span>
-                                                    <span class="off-text">OFF</span>
-                                                </span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <span class="status active">
-                                                Active
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-type-1">
-                                                    Renew
-                                                </button>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                        ...
-                                                    </button>
-                                                    <!-- Menu Dropdown -->
-                                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                                        <li>
-                                                            <a href="#">View Detail</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">Manage Domain</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox-wrap">
-                                                <input type="checkbox" class="checkbox">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text">
-                                                <img src="images/icon-globe-simple.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox" class="toggle">
-                                                <span class="slider">
-                                                    <span class="on-text">ON</span>
-                                                    <span class="off-text">OFF</span>
-                                                </span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <span class="status pending">
-                                                Pending
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-type-1">
-                                                    Renew
-                                                </button>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                        ...
-                                                    </button>
-                                                    <!-- Menu Dropdown -->
-                                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                                        <li>
-                                                            <a href="#">View Detail</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">Manage Domain</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox-wrap">
-                                                <input type="checkbox" class="checkbox">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text">
-                                                <img src="images/icon-globe-simple.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox" class="toggle">
-                                                <span class="slider">
-                                                    <span class="on-text">ON</span>
-                                                    <span class="off-text">OFF</span>
-                                                </span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-type-1">
-                                                    Renew
-                                                </button>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                        ...
-                                                    </button>
-                                                    <!-- Menu Dropdown -->
-                                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                                        <li>
-                                                            <a href="#">View Detail</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">Manage Domain</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox-wrap">
-                                                <input type="checkbox" class="checkbox">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="text">
-                                                <img src="images/icon-globe-simple.svg" alt="Icon Globe">
-                                                Cloudpedia.com
-                                            </div>
-                                        </td>
-                                        <td>
-                                            24/12/2025
-                                        </td>
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox" class="toggle">
-                                                <span class="slider">
-                                                    <span class="on-text">ON</span>
-                                                    <span class="off-text">OFF</span>
-                                                </span>
-                                            </label>
-                                        </td>
-                                        <td>
-                                            <span class="status suspended">
-                                                Suspended
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="btn-group">
-                                                <button class="btn btn-type-1">
-                                                    Renew
-                                                </button>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-type-1 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                                        ...
-                                                    </button>
-                                                    <!-- Menu Dropdown -->
-                                                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                                                        <li>
-                                                            <a href="#">View Detail</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="#">Manage Domain</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
-
-                <!-- Right Content -->
-                <div class="col-md-3">
-                    <div class="card blue-color ads">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <img src="images/server.png" class="server-content-img" alt="Server Illustration" />
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-top">
-            <div class="footer-logo">
-                <img src="images/logo.svg" alt="Cloudpedia Logo" class="logo">
-            </div>
-            <div class="footer-content">
-                <div class="footer-left">
-                    <p class="desc">
-                        Access the full potential of WHMCS with Shufy themes, featuring a new user-friendly client area, simplified ordering process, and much more!
-                    </p>
-
-                    <!-- Email -->
-                    <a href="mailto:noreply@Cloudpedia.id" class="contact-list">
-                        <img src="images/icon-mail.svg" alt="Icon Mail">
-                        <span>noreply@Cloudpedia.id</span>
-                    </a>
-
-                    <!-- Phone -->
-                    <a href="#" class="contact-list">
-                        <img src="images/icon-phone.svg" alt="Icon Phone">
-                        <span>+62 853-3656-9836</span>
-                    </a>
-
-                    <!-- Alamat Pusat -->
-                    <span class="contact-title">Alamat Pusat</span>
-                    <p class="contact-list">
-                        <img src="images/icon-address-white.svg" alt="Icon Address">
-                        <span class="address">
-                            Soho Vittorio Citraland, Unit 708 Lt.7 Jl. Raya Menganti Karangan No. 32, RT.000 RW.000, Babatan, Wiyung, Kota Surabaya, Jawa Timur
-                        </span>
-                    </p>
-
-                    <!-- Alamat Cabang -->
-                    <span class="contact-title">Alamat Cabang</span>
-                    <p class="contact-list">
-                        <img src="images/icon-address-black.svg" alt="Icon Address">
-                        <span class="address">
-                            Ruko Este Square, Blok A12 No.56-58 Jl. Dr. Ir. H. Soekarno, Mulyorejo, Kec. Mulyorejo, Surabaya, Jawa Timur 60115
-                        </span>
-                    </p>
-                </div>
-    
-                <div class="footer-right">
-                    <div class="footer-col">
-                        <h4>Product</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Web Hosting</a></li>
-                            <li><a href="#">Reseller Hosting</a></li>
-                            <li><a href="#">VPS Hosting</a></li>
-                            <li><a href="#">Dedicated Servers</a></li>
+                <div class="basis-2/3 grid grid-cols-5 gap-10">
+                    <div>
+                        <h4 class="text-lg font-bold text-black mb-1">Product</h4>
+                        <ul class="list-none space-y-1">
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Web Hosting</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Reseller Hosting</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">VPS Hosting</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Dedicated Servers</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="footer-col">
-                        <h4>Resources</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Minecraft Hosting</a></li>
-                            <li><a href="#">Website Builder</a></li>
-                            <li><a href="#">cPanel Reseller</a></li>
-                            <li><a href="#">Wordpress Hosting</a></li>
+                    <div>
+                        <h4 class="text-lg font-bold text-black mb-1">Resources</h4>
+                        <ul class="list-none space-y-1">
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Minecraft Hosting</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Website Builder</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">cPanel Reseller</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Wordpress Hosting</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="footer-col">
-                        <h4>Domains</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Domain Checker</a></li>
-                            <li><a href="#">Free Domain</a></li>
-                            <li><a href="#">WHOIS Checker</a></li>
+                    <div>
+                        <h4 class="text-lg font-bold text-black mb-1">Domains</h4>
+                        <ul class="list-none space-y-1">
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Domain Checker</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Free Domain</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">WHOIS Checker</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="footer-col">
-                        <h4>Services</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#">SSL Certificates</a></li>
-                            <li><a href="#">E-Mail Services</a></li>
-                            <li><a href="#">Site Builder</a></li>
-                            <li><a href="#">Website Builder</a></li>
-                            <li><a href="#">Professional Email</a></li>
-                            <li><a href="#">Website Security</a></li>
-                            <li><a href="#">Website Backup</a></li>
-                            <li><a href="#">Seo Tools</a></li>
+                    <div>
+                        <h4 class="text-lg font-bold text-black mb-1">Services</h4>
+                        <ul class="list-none space-y-1">
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">SSL Certificates</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">E-Mail Services</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Site Builder</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Website Builder</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Professional Email</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Website Security</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Website Backup</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Seo Tools</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="footer-col">
-                        <h4>Legal</h4>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Browser Cookies</a></li>
-                            <li><a href="#">Licesses</a></li>
-                            <li><a href="#">Settings</a></li>
-                            <li><a href="#">Contact</a></li>
+                    <div>
+                        <h4 class="text-lg font-bold text-black mb-1">Legal</h4>
+                        <ul class="list-none space-y-1">
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Terms & Conditions</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Browser Cookies</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Licesses</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Settings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-sm font-medium text-[#6c757d] hover:text-[#6a72de] hover:underline">Contact</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>Copyright © 2025 Cloudpedia. All Rights Reserved. Powered by TAN</p>
+        <div class="py-6 px-24 border-t border-black/10">
+            <p class="text-xs font-medium text-[#304166]">Copyright © 2025 Cloudpedia. All Rights Reserved. Powered by TAN</p>
         </div>
     </footer>
+    <!-- Footer End -->
 
     <!-- JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-    <!-- DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/2.3.4/js/dataTables.js"></script>
-
-    <!-- My JSs -->
     <script src="js/script.js"></script>
 </body>
 </html>
