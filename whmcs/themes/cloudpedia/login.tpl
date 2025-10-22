@@ -48,11 +48,9 @@
         {if $captcha->isEnabled()}
           {include file="$template/includes/captcha.tpl"}
         {/if}
-        <div class="float-left">
-            <button id="login" type="submit" class="btn btn-primary{$captcha->getButtonClass($captchaForm)}">
-              {lang key='loginbutton'}
-            </button>
-        </div>
+        <button id="login" type="submit" class="w-full h-10 mt-2 bg-gradient-to-r from-[#8E7DF8] to-[#C0BFF6] text-white font-semibold text-sm rounded-md shadow-md hover:from-[#A89BFF] hover:to-[#D2CEFF] focus:outline-none focus:ring-2 focus:ring-[#C0BFF6] transition-all duration-300">
+          {lang key="loginbutton"}
+        </button>
         <div class="flex items-center">
           <input type="checkbox" name="rememberme" id="remember" class="mr-2 accent-[#8E7DF8]">
           <label for="remember" class="text-sm font-medium text-[#8E7DF8] hover:text-[#C0BFF6] transition-colors duration-200 cursor-pointer">{lang key='loginrememberme'}</label>
